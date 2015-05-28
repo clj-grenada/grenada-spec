@@ -58,20 +58,20 @@ Notes:
 
    ```clojure
    (def Level (s/enum :grimoire.things/group
-                     :grimoire.things/artifact
-                     :grimoire.things/version
-                     :grimoire.things/platform
-                     :grimoire.things/namespace
-                     :grimoire.things/def))
+                      :grimoire.things/artifact
+                      :grimoire.things/version
+                      :grimoire.things/platform
+                      :grimoire.things/namespace
+                      :grimoire.things/def))
 
    (def Kind (s/enum :var :deftype :record :multimethod))
 
    (def Entity {:name s/Str
-               :level Level
-               :coords Coordinates
-               :kind Kind
-               :cmeta {s/Any s/Any} ; Should be write- and readable.
-               :extensions Extensions})
+                :level Level
+                :coords Coordinates
+                :kind Kind
+                :cmeta {s/Any s/Any} ; Should be write- and readable.
+                :extensions Extensions})
     ```
 
 Notes:
