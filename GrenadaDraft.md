@@ -27,18 +27,20 @@ Notes:
  - To be merged with other metadata artifacts.
  - Specify an entity by its coordinates and add something.
 
-       (def Coordinates [(s/one s/Str "group")
-                         (s/optional s/Str "artifact")
-                         (s/optional s/Str "version")
-                         (s/optional s/Str "platform")
-                         (s/optional s/Str "namespace")
-                         (s/optional s/Str "def")]
+   ```clojure
+   (def Coordinates [(s/one s/Str "group")
+                     (s/optional s/Str "artifact")
+                     (s/optional s/Str "version")
+                     (s/optional s/Str "platform")
+                     (s/optional s/Str "namespace")
+                     (s/optional s/Str "def")]
 
-       (def Extensions {s/Keyword ; namespace-qualified
-                        s/Any})   ; Should be write- and readable.
+   (def Extensions {s/Keyword ; namespace-qualified
+                    s/Any})   ; Should be write- and readable.
 
-       (def External [{:entity Coordinates
-                       :extensions Extensions}])
+   (def External [{:entity Coordinates
+                   :extensions Extensions}])
+   ```
 
 Notes:
 
@@ -54,21 +56,23 @@ Notes:
  - Each entity has its data.edn file.
  - Anything that is not Cmetadata has to go in :extensions.
 
-       (def Level (s/enum :grimoire.things/group
-                          :grimoire.things/artifact
-                          :grimoire.things/version
-                          :grimoire.things/platform
-                          :grimoire.things/namespace
-                          :grimoire.things/def))
+   ```clojure
+   (def Level (s/enum :grimoire.things/group
+                     :grimoire.things/artifact
+                     :grimoire.things/version
+                     :grimoire.things/platform
+                     :grimoire.things/namespace
+                     :grimoire.things/def))
 
-       (def Kind (s/enum :var :deftype :record :multimethod))
+   (def Kind (s/enum :var :deftype :record :multimethod))
 
-       (def Entity {:name s/Str
-                    :level Level
-                    :coords Coordinates
-                    :kind Kind
-                    :cmeta {s/Any s/Any} ; Should be write- and readable.
-                    :extensions Extensions})
+   (def Entity {:name s/Str
+               :level Level
+               :coords Coordinates
+               :kind Kind
+               :cmeta {s/Any s/Any} ; Should be write- and readable.
+               :extensions Extensions})
+    ```
 
 Notes:
 
@@ -93,21 +97,23 @@ Notes:
  - In order to add metadata to entities not supporting metadata close to where
    they're defined, we need some extra construct. Proposal:
 
-       (ns ex.ample
-         (:require [grenada.core :as grenada]))
+   ```clojure
+   (ns ex.ample
+     (:require [grenada.core :as grenada]))
 
-       (defrecord Repository [path]
-         ILookup
-         (get [this id] nil)
+   (defrecord Repository [path]
+     ILookup
+     (get [this id] nil)
 
-       (grenada/annotate! Repository
-         {:grenada.extensions.default/doc
-          {:doc "Represents a Git repository."
-           :protocols {"ILookup"
-                       {"get" {:arglists '([this id])
-                               :doc "Returns a GitObject with the given ID. Not
-                                    implemented yet."}}}}})
-           :author "Richard Möhn}}})
+   (grenada/annotate! Repository
+     {:grenada.extensions.default/doc
+      {:doc "Represents a Git repository."
+       :protocols {"ILookup"
+                   {"get" {:arglists '([this id])
+                           :doc "Returns a GitObject with the given ID. Not
+                                implemented yet."}}}}})
+       :author "Richard Möhn}}})
+   ```
 
 Notes:
 
