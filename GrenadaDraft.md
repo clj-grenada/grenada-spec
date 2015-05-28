@@ -1,6 +1,6 @@
 # Draft of the Grenada specification
 
-Version: 0.1.1
+Version: 0.1.2-SNAPSHOT
 
 Notes:
 
@@ -51,7 +51,7 @@ Notes:
  - This format will be used for the metadata JARs.
  - Directory structure parallels coordinates. The levels of the hierarchy will
    be as seen in `Coordinates`.
- - Each entity has its data.clj file.
+ - Each entity has its data.edn file.
  - Anything that is not Cmetadata has to go in :extensions.
 
        (def Level (s/enum :grimoire.things/group
@@ -116,4 +116,9 @@ Notes:
  - How do we use this to add metadata to multimethod methods?
  - How do we find out what deftypes and records were defined and where?
 
-[[!expiry 2016]]
+
+## Changelog
+
+### 0.1.2-SNAPSHOT
+
+ - Name of metadata files: `data.clj` → `data.edn`
