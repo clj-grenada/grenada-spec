@@ -64,13 +64,14 @@ Notes:
                       :grimoire.things/namespace
                       :grimoire.things/def))
 
-   (def Kind (s/enum :var :deftype :record :multimethod))
+   (def DefKind (s/enum :var :deftype :record :multimethod))
 
    (def Entity {:name s/Str
                 :level Level
                 :coords Coordinates
-                :kind Kind
-                :cmeta {s/Any s/Any} ; Should be write- and readable.
+                (s/optional-key :kind) DefKind
+                (s/optional-key :cmeta) {s/Any s/Any}
+                  ; Must be write- and readable as EDN.
                 :extensions Extensions})
     ```
 
@@ -84,12 +85,17 @@ Notes:
       criterion, which one should it be?
     - Not sure if I should use the grimoire.things namespace or define my own.
  - Not sure whether to include the :coords.
+ - Not sure whether to make the `Kind` namespace-qualified or not.
  - Should the items in `Kind` be strings or keywords?
  - I guess we don't want to include the :source. Or should it be configurable?
  - With Grimoire you can select macros, vars, fns, sentinels etc. Do we need an
    extra map entry for this? Macros have Cmetadata indicating that they are
    macros, but not the other things. So I gues this goes into :extensions as
    well.
+ - Might be specified rigorously in Schema:
+    - Currently only entities at the `:grimoire.things/def` level can be of
+      different `:kind`s.
+    - Above the namespace level there is nothing that supports Cmetadata.
 
 ## Adding extension metadata to entities without support for Cmetadata
 
@@ -128,3 +134,6 @@ Notes:
 ### 0.1.2-SNAPSHOT
 
  - Name of metadata files: `data.clj` → `data.edn`
+ - Make `:kind` and `:cmeta` entries in `Entity` optional.
+ - Rename `Kind` to `DefKind`.
+ - Add notes concerning `:kind`s and the (non-)existence of Cmetadata.
