@@ -1,6 +1,6 @@
 # Draft of the Grenada specification
 
-Version: 0.1.2-SNAPSHOT
+Version: 0.1.2
 
 Notes:
 
@@ -131,7 +131,7 @@ Notes:
 
 ## Changelog
 
-### 0.1.2-SNAPSHOT
+### 0.1.2
 
  - Name of metadata files: `data.clj` → `data.edn`
  - Make `:kind` and `:cmeta` entries in `Entity` optional.
