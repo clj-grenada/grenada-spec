@@ -1,7 +1,5 @@
 # Draft of the Grenada specification
 
-Version: 0.1.3
-
 Notes:
 
  - The name "Grenada" itself is only a working title. When I've found a better
@@ -176,16 +174,17 @@ Notes:
 
    (defrecord Repository [path]
      ILookup
-     (get [this id] nil)
+     (get [this id] nil))
 
-   (grenada/annotate! Repository
-     {:grenada.extensions.default/doc
+   (grenada/defrecord Repository
       {:doc "Represents a Git repository."
-       :protocols {"ILookup"
-                   {"get" {:arglists '([this id])
-                           :doc "Returns a GitObject with the given ID. Not
-                                implemented yet."}}}}})
-       :author "Richard Möhn}}})
+       :author "Richard Möhn"}}
+     [path]
+
+     ILookup
+     {:arglists '([this id])
+      :doc "Returns a GitObject with the given ID. Not implemented yet."}
+     (get [this id] nil))
    ```
 
 Notes:
@@ -194,9 +193,16 @@ Notes:
    document their records in a separate external metadata file in most cases.
  - How do we use this to add metadata to multimethod methods?
  - How do we find out what deftypes and records were defined and where?
+ - Have to think how to design the syntax so that it doesn't get unwieldy,
+   especially in cases where we want to attach extension metadata to methods.
 
 
 ## Changelog
+
+### 0.1.4
+
+ - Outsource versioning to README.
+ - Rewrite attaching metadata to a record to something arguably more elegant.
 
 ### 0.1.3
 
