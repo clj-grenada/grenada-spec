@@ -10,6 +10,10 @@ Notes:
     - Make a vector `[:hierarchical {…}]`.
  - Formats migth evolve. So in addition to the "which format", we might also
    need information about the version of the format.
+ - Should we use Guten Tag? – Maybe it's because I haven't looked into it much,
+   but I don't yet see the big advantage over records or maps with a `:type`
+   key. (Note that I know and am fond of languages with a strong type system,
+   though.)
 
 ### in-memory, hierarchical
 
@@ -42,9 +46,8 @@ Disadvantages:
 
 Notes:
 
- - Somehow like the Grimoire Big Map.
- - The Grimoire Big Map is much harder to query, though. Why is it the way it
-   is?
+ - Similar to the Grimoire Big Map. (That issue should have a reference to Guten
+   Tag, though. I was wondering for some time why it looks how it looks.)
 
 ### in-memory, sequential
 
