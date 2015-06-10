@@ -144,9 +144,10 @@ Notes:
  - This format will be used for the metadata JARs.
  - The JAR will have the classifier "grenadata".
  - Directory structure parallels coordinates. The levels of the hierarchy
-   correspond to the `Coordinates`.
+   correspond to the `Coordinates`. Coordinates will be `grimoire.util/munge`d
+   for use as file and directory names.
  - Each entity has its data.edn file, which contains its `Entity` map.
- - Example:
+ - Example (path demunged):
 
     ```
     coordinates: ["clj-grenada" "grenada-lib" "0.1.0" "clj" "grenada-lib.core"]
@@ -203,6 +204,7 @@ Notes:
 
  - Outsource versioning to README.
  - Rewrite attaching metadata to a record to something arguably more elegant.
+ - Add munging of paths.
 
 ### 0.1.3
 
