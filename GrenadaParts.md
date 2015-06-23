@@ -10,17 +10,19 @@ Notes:
    parts again. For example, it would be clumsy to require the lowest-level
    procedure of the Clojure source extractor to produce complete metadata maps.
    Yet, in order to create a full Clojure source extractor, we can wire it up
-   with a couple of sources, transformers, mergers and a sink to finally produce
-   standard-compliant data. Thus we would have a standard-compliant extractor
-   that is made up of smaller parts that communicate in a format appropriate to
-   their needs.
+   with a couple of transformers to produce standard-compliant data. Thus we
+   would have a standard-compliant extractor that is made up of smaller parts
+   that communicate in a non-standard format appropriate to their needs.
  - All the intermediate steps could be transducers, couldn't they?
  - The extractor needs some special semantics like hooks, because there the
    metadata maps aren't complete and it might be too overkill to assemble a new
-   extractor every time. But maybe it wouldn't. We'll see.
+   extractor for every purpose. But maybe it wouldn't. We'll see.
  - The details on how to connect those parts and on how to iterate over
    collections are irrelevant at the conceptual level and up to the
    implementation.
+ - But, fret not, most of this stuff will be plain old Clojure functions and
+   procedures. I won't require any more formality than is necessary.
+ - Have to think about the overlap between transformers and converters.
 
 ## Preprocessor
 
@@ -30,31 +32,50 @@ Note:
 
  - Not sure if this is needed.
 
-## Extractor (Source)
+## Extractor (Source, Importer)
 
  - Given an entry point to Clojure sources or whatever, extracts metadata from
    there and returns them in the blessed format.
  - May take a set (vector?) of callback functions that are called for every some
    piece of low level information.
  - More generally, this is just a source. It gets data from somewhere (possibly
-   directly as Clojure data structure) and returns it in some usable way.
+   directly as Clojure data structure) and returns it in a usable way.
 
 ## Transformer
 
- - A function that maps from metadata map to metadata map.
- - If it returns nil, this means that the input metadata map should be deleted
-   from a metadata collection.
-
-Notes:
-
- - Not sure if transformers should operate on single metadata maps or on
-   collections of metadata maps. The former case is easier to implement (and
-   would eliminate the need for nil as a special value), the latter is more
-   flexible.
+ - There can be two kinds of transformers:
+    1. Functions that map from metadata map to metadata map.
+    2. Functions that map from a metadata collection to a metadata collection.
+ - The first kind should be sufficient in most cases.
+ - The second kind can be used for reordering the whole collection or throwing
+   out metadata maps that are not needed.
 
 ## Merger
 
- - A function that takes a pair of metadata maps and returns one.
+ - A function that takes a pair of metadata maps for the same entity and returns
+   one.
+
+Implementation ideas:
+
+ - The default merge-2 merges metadata maps using `merge-with` and a function
+   that throws an exception upon collisions of any other than the `:extensions`
+   entries. The extensions entries again are merged using `merge-with` and a
+   function that tries to resolve collisions using any provided plugins and
+   throws an exception if it can't do so.
+ - The default merge converts two sequential collections of metadata to a
+   mapping collection, applies `merge-with` with the merge-2 and converts back
+   to a sequential collection.
+
+Notes:
+
+ - I considered merging all maps on corresponding levels with the same keys, but
+   I think that doesn't make sense. If, for example, there a two metadata maps
+   with different `:cmeta` maps that could be merged without collisions, the
+   result wouldn't have any sensible semantics. But, as always, you can
+   implement your own if you disagree with me. I will make it as easy as I can.
+ - I think that in general the sequential format is much more idiomatic to work
+   with than the mapping format. That's why we're converting back and forth
+   instead of using the mapping format all the time.
 
 ## Converter
 
@@ -75,3 +96,13 @@ Notes:
 
  - "Postprocessor" might be too wide-scoped. Before I had "Packager", which was
    too narrow-scoped.
+
+
+## Changelog
+
+### 0.1.5
+
+ - Extend the concept of a transformer to something that can also take whole
+   collections of metadata Tmaps.
+ - Add note about conceptual overlap between transformers and converters.
+ - Add implementation ideas to the [converter section](#converter).
