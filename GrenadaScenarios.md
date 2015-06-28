@@ -3,7 +3,7 @@
 Notes:
 
  - This document got a bit out of control. Right now it shouldn't be considered
-   part of the specification.
+   a main part of the specification.
 
 ## GREN001: Extract "usual" metadata from the current project
 

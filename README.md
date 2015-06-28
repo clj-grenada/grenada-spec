@@ -1,34 +1,43 @@
-# Grenada
+# Grenada Specification and Misc
 
-Clojure metadata build and distribution system.
+[![Map indicating the location of Grenada in the Lesser
+Antilles.](https://upload.wikimedia.org/wikipedia/commons/5/53/Grenada_in_its_region.svg)](https://commons.wikimedia.org/wiki/File:Grenada_in_its_region.svg#/media/File:Grenada_in_its_region.svg)
+[(Listen also.)](http://www.bbc.co.uk/programmes/b02x5j69)
 
-## Version
+Grenada is a Clojure metadata build and distribution system.
 
-0.1.5
+This repo houses the [Grenada specification](SpecOverview.md) and other things
+which I couldn't find a better place for.
 
-## Notes
+## Git Workflow
 
- - ❁ Important notes are marked with ❁. The other notes might still be
-   interesting, but are more notes to myself. However, if you have a question
-   about something, please read the notes on it first. – They might already
-   contain the answer.
- - The distribution of information across files has gotten better, but is still
-   not good.
+Except for a few commits in the beginning, branching and merging follows
+[Driessen's model](http://nvie.com/posts/a-successful-git-branching-model/).
+Versions and releases are those of the specification.
 
-## Changelog
+## See also
 
-Contains only changes that can't be assigned to a single document. All
-changelogs only list changes I consider important and interesting. Typos,
-rewordings and additions of some notes are usually not included.
+The repositories grouped under https://github.com/clj-grenada are all in some
+way related to Grenada development.
 
-### 0.1.5
+## Thanks
 
- - Introduce the marker ❁.
- - Rearrange some things between files.
+…to Reid McKenzie (@arrdem) and Alex Miller (@puredanger) for mentoring me in
+this project.
 
-### 0.1.4
+## License
 
- - Add README as an overview and in order to provide uniform versioning for all
-   the documents.
- - Add documents about different storage formats and about the conceptual
-   components for creating Grenada builds.
+Copyright (c) 2015 Richard Möhn
+
+This README and the specifiction are licensed under the Creative Commons
+Attribution 4.0 International License. To view a copy of this license, see
+[LICENSE.txt](LICENSE.txt) or visit http://creativecommons.org/licenses/by/4.0/.
+
+The image files in the directory [logo](/logo) are licensed separately, but also
+under the Creative Commons Attribution 4.0 International License.
+
+The Perl script in the directory [logo](/logo) is licensed under the MIT
+license, the text of which can be found at http://opensource.org/licenses/MIT.
+
+The map of the location of Grenada is sourced directly from the Wikimedia
+Commons. For license information, simply click on the image.
