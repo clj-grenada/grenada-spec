@@ -16,7 +16,7 @@
    version="1.1"
    inkscape:version="0.91 r13725"
    sodipodi:docname="grenada-logo.svg"
-   inkscape:export-filename="/home/erle/repos/grenada-spec/grenada-logo-200x200.png"
+   inkscape:export-filename="/home/erle/repos/grenada-spec/grenada-logo-white.png"
    inkscape:export-xdpi="562.5"
    inkscape:export-ydpi="562.5">
   <title
@@ -31,7 +31,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="5.6"
-     inkscape:cx="-52.381972"
+     inkscape:cx="-9.5248291"
      inkscape:cy="26.792603"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -59,7 +59,7 @@
           </cc:Agent>
         </dc:creator>
         <cc:license
-           rdf:resource="http://creativecommons.org/licenses/by/3.0/" />
+           rdf:resource="http://creativecommons.org/licenses/by/4.0/" />
         <dc:rights>
           <cc:Agent>
             <dc:title>Copyright (c) 2015 Richard Möhn</dc:title>
@@ -88,7 +88,7 @@
      id="layer1"
      transform="translate(0,-1020.3622)">
     <rect
-       style="fill:none;fill-opacity:1;stroke:#90b4fe;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#ffffff;fill-opacity:1;stroke:#90b4fe;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect3401"
        width="30"
        height="30"

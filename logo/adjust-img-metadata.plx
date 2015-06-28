@@ -2,6 +2,9 @@
 
 # Quick and dirty Perl script for adjusting the metadata of the various logo
 # files. Doesn't work with the original SVG, though. :-(
+#
+# For the SVG you have to remember to edit the URL of the CC-BY license to
+# point at version 4.0.
 
 use 5.010;
 use warnings;
