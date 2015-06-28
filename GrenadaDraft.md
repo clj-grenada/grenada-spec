@@ -1,11 +1,5 @@
 # Draft of the Grenada specification
 
-Notes:
-
- - The name "Grenada" itself is only a working title. When I've found a better
-   title, I will case-insensitively search through the occurences of the string
-   "grenada" in these documents and do the necessary amendments.
-
 ## Terminology
 
  - Cmetadata: The construct called "metadata" in Clojure. – Stuff returned by
