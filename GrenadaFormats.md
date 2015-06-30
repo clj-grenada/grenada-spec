@@ -86,6 +86,14 @@ Notes:
    annoying if we had to take care of extension metadata in two places
    afterwards. Taking care only in one place can be achieved only by having
    those data in one place.
+ - TODO: Make a list of extension metadata keys I've already experimentally used
+         somewhere. (RM 2015-06-30)
+ - TODO: Specify what the canonical name for each Thing looks like. (RM
+         2015-06-30)
+ - TODO: Think about how to handle `defmulti`s. (RM 2015-06-30)
+ - TODO: Specify what the namespace coordinate for special forms should be. (RM
+         2015-06-30)
+ - TODO: Think about whether we need to support structs. (RM 2015-06-30)
 
 ## Metadata for many Things
 

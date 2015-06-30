@@ -8,6 +8,9 @@
  - Tmap: I'm too lazy to write tagged map everytime I'm talking about something
    that has to do with Guten-tag. If someone knows a better term, please tell
    me. (I will gradually adopt this terminology.)
+ - def: Defs are the Things at the lowest level. They are defined in code that
+   belongs to namespaces and you define them usually with an expression like
+   `(def… …)`.
 
 ## Plugins/extensions
 
@@ -73,7 +76,7 @@ Notes:
  - Sorry for "grenadata". Hopefully it will get better with a better name.
  - Also inspired by the Grimoire format of storing data about Things on disk.
 
-## Adding extension metadata to entities without support for Cmetadata
+## Metadata annotations: extension metadata for entities without support for Cmetadata
 
  - Extension metadata can be added to any entity by way of external metadata.
  - In order to add metadata to entities not supporting metadata close to where
@@ -111,6 +114,7 @@ Notes:
                                 implemented yet."}}}}})
        :author "Richard Möhn}}})
     ```
+ - Things that do support Cmetadata can also be annotated.
 
 Notes:
 
@@ -120,6 +124,8 @@ Notes:
  - How do we find out what deftypes and records were defined and where?
  - Have to think how to design the syntax so that it doesn't get unwieldy,
    especially in cases where we want to attach extension metadata to methods.
+ - Should we do this annotation thing the same way core.typed does it, i.e. with
+   a global atom, or differently?
 
 
 ## Changelog
