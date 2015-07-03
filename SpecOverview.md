@@ -1,11 +1,27 @@
 # Grenada Specification
 
 This is a rough and work-in-progress specification of how Grenada is supposed to
-work. It consists of this overview and the files
-[GrenadaDraft.md](GrenadaDraft.md), [GrenadaParts.md](GrenadaParts.md) and
-[GrenadaFormats.md](GrenadaFormats.md). Formally,
-[GrenadaScenarios.md](GrenadaScenarios.md) also belongs to it, but it is more a
-historical heap of notes than anything else.
+work. It consists of this overview and the files (to be explored in this order):
+
+ - [model-diagram.dia](model-diagram.dia) and
+   [model-diagram.pdf](model-diagram.pdf) – A UML class diagram describing the
+   data model which Grenada is based on. This diagram type might not be the
+   optimal fit, but it's better than if I make up something myself.
+
+ - [GrenadaDraft.md](GrenadaDraft.md) – Collection of information that didn't
+   fit anywhere else (or that I haven't made fit yet). Read the section on
+   terminology and skim the rest, then move on.
+
+ - [GrenadaFormats.md](GrenadaFormats.md) – Specification of a concrete
+   implementation of the model. Describes different storage formats for
+   different purposes.
+
+ - [GrenadaParts.md](GrenadaParts.md) – Description of conceptual components for
+   assembling Grenada build processes.
+
+ - [GrenadaScenarios.md](GrenadaScenarios.md) – Formally this also belongs to
+   this specification, but it is more a historical heap of notes than anything
+   else. You can ignore it.
 
 
 ## Version
@@ -14,10 +30,10 @@ historical heap of notes than anything else.
 
 ## Notes
 
- - ❁ Important notes are marked with ❁. The other notes might still be
-   interesting, but are more notes to myself. However, if you have a question
-   about something, please read the notes on it first. – They might already
-   contain the answer.
+ - ❁ Important notes are marked with ❁. Those you should read. The other notes
+   might still be interesting, but are more notes to myself. However, if you
+   have a question about something, please read the notes on it first. – They
+   might already contain the answer.
  - The distribution of information across files has gotten better, but is still
    not good.
 
