@@ -6,8 +6,9 @@ Antilles.](https://upload.wikimedia.org/wikipedia/commons/5/53/Grenada_in_its_re
 
 Grenada is a Clojure metadata build and distribution system.
 
-This repo houses the [Grenada specification](SpecOverview.md) and other things
-which I couldn't find a better place for.
+This repo houses the Grenada specification (start with reading the
+[overview](SpecOverview.md)) and other things, which I couldn't find a better
+place for.
 
 ## Git Workflow
 
