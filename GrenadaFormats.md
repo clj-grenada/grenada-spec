@@ -58,10 +58,9 @@ Notes:
       entry where you can put anything. Not sure if we should have more
       top-level keys. But if we don't make Cmetadata/nonC-metadata the
       criterion, which one should it be?
-    - ❁ No explicit storage of parent. The parent of a Thing can always be
-      found by looking up the coordinates of the thing with the last entry
-      chopped off. @Reid: what was the rationale for including the parent? It
-      appears like a lot of overhead to me.
+    - No explicit storage of parent. The parent of a Thing can always be found
+      by looking up the coordinates of the thing with the last entry chopped
+      off.
  - I used to call Things "entities", but will gradually convert to Thing . – If
    we're using nondescript names, we should at least all use the same. Grenada
    Thing maps are a bit different from Grimoire's. Therefore qualify them with a
