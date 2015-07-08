@@ -6,38 +6,29 @@
  - This is the official format for exchanging metadata. On the inside,
    components may use whatever format they want.
  - Anything that is not Cmetadata has to go in :extensions.
+ - There will be a [guten-tag](https://github.com/arrdem/guten-tag) tag type for
+   every kind of Thing, which roughly looks like this:
 
    ```clojure
-   (def Level (s/enum :grenada.things/group
-                      :grenada.things/artifact
-                      :grenada.things/version
-                      :grenada.things/platform
-                      :grenada.things/namespace
-                      :grenada.things/def))
-
-   (def DefKind (s/enum :var :deftype :record :multimethod))
-
-   (def Coordinates [(s/one s/Str "group")
-                     (s/optional s/Str "artifact")
-                     (s/optional s/Str "version")
-                     (s/optional s/Str "platform")
-                     (s/optional s/Str "namespace")
-                     (s/optional s/Str "def")]
+   (def Coords [(s/one s/Str "group")
+                (s/optional s/Str "artifact")
+                (s/optional s/Str "version")
+                (s/optional s/Str "platform")
+                (s/optional s/Str "namespace")
+                (s/optional s/Str "def")]
 
    (def Extensions {s/Keyword ; namespace-qualified
                     s/Any})   ; Should be write- and readable.
 
-   (def Entity {:name s/Str
-                :level Level
-                :coords Coordinates
-                (s/optional-key :kind) DefKind
-                (s/optional-key :cmeta)
-                ,,{s/optional-key :grenada.cmeta/extensions Extensions
-                   s/Any s/Any}
-                  ; Only those entries write- and readable as EDN.
-                :extensions Extensions})
+   (def Thing [s/Keyword ; the tag type, :grenada.things/#{group,…,fn,…}
+               {:name s/Str
+                :coords Coords
+                :extensions Extensions
+                :cmeta {}}])
    ```
 
+ - For more accurate specifications, see the [model](model-diagram.pdf) and
+   lib-grenada's `grenada.things` namespace.
  - The value for the `:cmeta` key will contain the map returned by `(meta
    <obj>)` with these exceptions:
 
@@ -47,52 +38,38 @@
       goes for metadata export/import. Of course you can transform the metadata
       beforehand or write your own capturers, exporters and importers that are
       more capable.
-    - An entry with the key `:grenada.cmeta/extensions` will be `dissoc`-ed from
-      the Cmetadata map and its map `merge`-d into the value of the
-      `:extensions` key of the `Entity`.
+    - An entry in the `:cmeta` map with the key `:grenada.cmeta/extensions` will
+      be `dissoc`-ed from the Cmetadata map and its map `merge`-d into the value
+      of the `:extensions` key of the `Entity`.
 
 Notes:
 
- - Inspired by the Grimoire format, but:
+ - Inspired by parts of Grimoire, but:
+    - Grimoire has a graph that's used only for navigating between different
+      Things. The data are stored separately. Here we don't have explicit
+      navigation, but store everything in one place.
     - Fewer top-level keys in the map for a Thing in favour of the extension
       entry where you can put anything. Not sure if we should have more
       top-level keys. But if we don't make Cmetadata/nonC-metadata the
       criterion, which one should it be?
-    - No explicit storage of parent. The parent of a Thing can always be found
-      by looking up the coordinates of the thing with the last entry chopped
-      off.
+    - ❁ Separating Cmetadata is also artificial somehow. Why don't we just have
+      a `:data` entry whose value is a key-value store? Each value with its own
+      constraints and guarantees.
  - I used to call Things "entities", but will gradually convert to Thing . – If
-   we're using nondescript names, we should at least all use the same. Grenada
-   Thing maps are a bit different from Grimoire's. Therefore qualify them with a
-   different namespace.
+   we're using nondescript names, we should at least all use the same. The
+   Grenada's and Grimoire's Tmaps live in different namespaces, so there
+   shouldn't be a problem.
  - Specifying an entity's coordinates as a vector, because it doesn't require
    parsing a string before being able to find the entity, in a nested map, for
    example.
- - ❁ The shape of the data structure is going to change (Guten-tag), but the
-   information it contains look okay to me for now.
- - I guess we don't want to include the :source. Or should it be configurable?
- - With Grimoire you can select macros, vars, fns, sentinels etc. Do we need an
-   extra map entry for this? Macros have Cmetadata indicating that they are
-   macros, but not the other things. So I guess this goes into :extensions as
-   well.
- - Will be specified rigorously in Schema/Guten-tag with "smart constructors":
-    - Currently only entities at the `:grimoire.things/def` level can be of
-      different `:kind`s.
-    - Above the namespace level there is nothing that supports Cmetadata.
+ - I guess we don't want to include the :source by default. If someone needs it,
+   they can make an extension entry.
  - The remove-and-merge of the `:grenada.cmeta/extensions` entry is a bit ugly,
    but I think there is no alternative. For convenience reasons we have to allow
    the attachment of extension metadata in the Cmetadata map, but it would be
    annoying if we had to take care of extension metadata in two places
    afterwards. Taking care only in one place can be achieved only by having
    those data in one place.
- - TODO: Make a list of extension metadata keys I've already experimentally used
-         somewhere. (RM 2015-06-30)
- - TODO: Specify what the canonical name for each Thing looks like. (RM
-         2015-06-30)
- - TODO: Think about how to handle `defmulti`s. (RM 2015-06-30)
- - TODO: Specify what the namespace coordinate for special forms should be. (RM
-         2015-06-30)
- - TODO: Think about whether we need to support structs. (RM 2015-06-30)
 
 ## Metadata for many Things
 
@@ -106,28 +83,34 @@ Notes:
    keeping track of six different data structures, but might also introduce
    duplicated control structures for splicing apart the different kinds of
    entities in various corners of the code. Have to see how this plays out.
+ - Actually it's many more than six now, since we have all the different kinds
+   of Defs.
+ - I've found that keeping track of different data structures is a pain. There
+   can be many things common in the processing and you have to jump hoops in
+   order to avoid too much duplicate code. It was easier to have everything in
+   one linear data structure, process it linearly and have little branch-outs
+   when parts of the processing have to be different.
+ - But I guess it depends on how many data structures you have to deal with at
+   the time and how much common and non-common processing there is.
 
 ## In-memory
 
 Notes:
 
  - We need some sort of indication of which format we're dealing with when we
-   just get a data structure. Possibilities:
-    - Put them in a record.
-    - Make a vector `[:hierarchical {…}]`.
+   just get a data structure. So maybe introduce guten-tag tag types for that.
  - Formats might evolve. So in addition to the "which format", we might also
-   need information about the version of the format.
- - Should try out Guten-tag.
+   need information about the version of the format. – Might get messy.
 
 ### In-memory, hierarchical
 
- - In a way that data about an entity can be lookup up by
+ - In a way that data about an entity can be looked up with
 
    ```clojure
    (get-in data ["org.clojure" "clojure" "1.6.0" "clj" "clojure.core" :this])
    ```
 
-   and its children by
+   and its children with
 
    ```clojure
    (-> data

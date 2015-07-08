@@ -8,12 +8,11 @@ Notes:
    interoperability issues.
  - Non-standard formats are likely to occur in cases where parts are composed of
    parts again. For example, it would be clumsy to require the lowest-level
-   procedure of the Clojure source extractor to produce complete metadata maps.
+   procedure of the Clojure source extractor to produce complete Things.
    Yet, in order to create a full Clojure source extractor, we can wire it up
    with a couple of transformers to produce standard-compliant data. Thus we
    would have a standard-compliant extractor that is made up of smaller parts
    that communicate in a non-standard format appropriate to their needs.
- - All the intermediate steps could be transducers, couldn't they?
  - The extractor needs some special semantics like hooks, because there the
    metadata maps aren't complete and it might be too overkill to assemble a new
    extractor for every purpose. But maybe it wouldn't. We'll see.
@@ -26,7 +25,7 @@ Notes:
 
 ## Preprocessor
 
- - Provides a uniform entrypoint for extractors.
+ - Provides a uniform entry point for extractors.
 
 Note:
 
@@ -34,8 +33,8 @@ Note:
 
 ## Extractor (Source, Importer)
 
- - Given an entry point to Clojure sources or whatever, extracts metadata from
-   there and returns them in the blessed format.
+ - Given an entry point to Clojure sources (a filename, for example), extracts
+   metadata from there and returns them in the blessed format.
  - May take a set (vector?) of callback functions that are called for every some
    piece of low level information.
  - More generally, this is just a source. It gets data from somewhere (possibly
@@ -44,16 +43,19 @@ Note:
 ## Transformer
 
  - There can be two kinds of transformers:
-    1. Functions that map from metadata map to metadata map.
+    1. Functions that map from Tmap to Tmap.
     2. Functions that map from a metadata collection to a metadata collection.
  - The first kind should be sufficient in most cases.
  - The second kind can be used for reordering the whole collection or throwing
-   out metadata maps that are not needed.
+   out Tmaps that are not needed.
 
 ## Merger
 
- - A function that takes a pair of metadata maps for the same entity and returns
-   one.
+ - merge-2: A function that takes a pair of Tmaps for the same entity and
+   returns one.
+ - merge: A function that takes two collections of Tmaps and applies merge-2 to
+   a pair of Tmaps describing the same Thing in order to obtain one collection
+   of Tmaps.
 
 Implementation ideas:
 
@@ -69,8 +71,8 @@ Implementation ideas:
 Notes:
 
  - I considered merging all maps on corresponding levels with the same keys, but
-   I think that doesn't make sense. If, for example, there a two metadata maps
-   with different `:cmeta` maps that could be merged without collisions, the
+   I think that doesn't make sense. If, for example, there a two Tmaps with
+   different `:cmeta` entries that could be merged without collisions, the
    result wouldn't have any sensible semantics. But, as always, you can
    implement your own if you disagree with me. I will make it as easy as I can.
  - I think that in general the sequential format is much more idiomatic to work
@@ -94,8 +96,8 @@ Notes:
 
 Notes:
 
- - "Postprocessor" might be too wide-scoped. Before I had "Packager", which was
-   too narrow-scoped.
+ - "Postprocessor" might be a too loose term. Before, I had "Packager", which
+   was too narrow.
 
 
 ## Changelog
