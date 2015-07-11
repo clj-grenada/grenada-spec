@@ -8,6 +8,9 @@ work. It consists of this overview and the files (to be explored in this order):
    data model which Grenada is based on. This diagram type might not be the
    optimal fit, but it's better than if I make up something myself.
 
+ - [GrenadaModel.md](GrenadaModel.md) – Comments on the data model that I don't
+   want to cram into the diagram.
+
  - [GrenadaDraft.md](GrenadaDraft.md) – Collection of information that didn't
    fit anywhere else (or that I haven't made fit yet). Read the section on
    terminology and skim the rest, then move on.
