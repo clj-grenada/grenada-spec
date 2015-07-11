@@ -102,6 +102,10 @@ Notes:
 
 ## Changelog
 
+### 0.2.0
+
+ - Clarify the section about Mergers.
+
 ### 0.1.5
 
  - Extend the concept of a transformer to something that can also take whole

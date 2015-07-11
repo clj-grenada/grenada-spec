@@ -29,7 +29,7 @@ work. It consists of this overview and the files (to be explored in this order):
 
 ## Version
 
-0.1.5
+0.2.0
 
 ## Notes
 
@@ -45,6 +45,13 @@ work. It consists of this overview and the files (to be explored in this order):
 Contains only changes that can't be assigned to a single document. All
 changelogs only list changes I consider important and interesting. Typos,
 rewordings and additions of some notes are usually not included.
+
+### 0.2.0
+
+ - Introduce a proper model, comprising a [diagram](model-diagram.pdf) and a
+   [text file](GrenadaModel.md).
+ - (Not really spec.) Introduce a logo.
+ - Make name "Grenada" permanent.
 
 ### 0.1.5
 
