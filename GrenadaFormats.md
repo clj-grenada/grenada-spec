@@ -287,6 +287,11 @@ Disadvantages:
 
 ## Changelog
 
+### 0.2.0
+
+ - Change format from maps with `:kind` keys to guten-tag tagged maps.
+ - Update intro notes in [Metadata for many Things](metadata-for-many-things).
+
 ### 0.1.5
 
  - Take over section

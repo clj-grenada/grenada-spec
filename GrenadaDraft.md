@@ -123,6 +123,12 @@ Notes:
 
 ## Changelog
 
+### 0.2.0
+
+ - Add section [Extension metadata](#extension-metadata).
+ - Remove section External metadata.
+ - Change classifier for metadata JARs to "datadoc".
+
 ### 0.1.5
 
  - Add the term Tmap.
