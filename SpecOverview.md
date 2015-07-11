@@ -29,7 +29,7 @@ work. It consists of this overview and the files (to be explored in this order):
 
 ## Version
 
-0.1.5
+0.2.0
 
 ## Notes
 
