@@ -43,6 +43,8 @@ I've already played with the following keys for extension entries:
  - `:voyt.ext/defines` for a list of symbols a macro defines.
  - `:grenada.ext.default/doc` for doc strings on Things that don't support doc
    strings.
+ - `:grenada.ext.default/protocol-map` for the map that is stored in a Var when
+   a protocol is created.
 
 ## Filesystem/JAR format
 
