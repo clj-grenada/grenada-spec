@@ -41,37 +41,54 @@
       there and in the expected shape.
 
 
-
+## A new model
 
  - We have Things.
- - A Thing is a data structures containing data about a concrete thing.
- - Not writing "concrete" everywhere is okay as long as it's clear what is meant
-   (by capitalization in writing and by context in speaking).
- - A Thing has Aspects that define its semantics.
+ - A Thing is a data object containing data about a concrete thing.
+ - (Not writing "concrete" everywhere is okay as long as it's made clear what is
+   meant (by capitalization in writing and by context in speaking).)
+ - A Thing has Bars that *contain data* about the concrete thing.
+ - A Thing has Aspects that *define its semantics*.
  - A Thing has Coordinates that tell where we can find the concrete thing.
- - A Thing has Bars that are pieces of information about the concrete thing.
+
+### More on Bars
+
+ - Bars may be added to or deleted from a Thing.
+ - Every Bar has a type (I'm tempted to call it Mould). The type defines the
+   meaning and shape of the information the Bar contains. It also defines the
+   prerequisites of the Bar, that is, the Aspects and types of Bars required to
+   be present on a Thing before the Bar can be added to it.
+ - A Thing cannot have two Bars of the same type.
+
+### More on Aspects
+
+ - Aspects may be added to, but not deleted from a Thing.
+ - Aspects may not make any statement about the Bars of a Thing.
+ - An Aspect may define prerequisites, that is, the Aspects required to be
+   present on a Thing before the Aspect can be added to it.
+ - A Thing cannot have two conflicting Aspects.
  - A Thing has exactly one of the following Aspects.
 
-Group:
+#### Group
 
  - A Thing with the Aspect Group contains data about a concrete Maven group.
  - It has one coordinate, the name of the concrete group.
 
-Artifact:
+#### Artifact
 
  - A Thing with the Aspect Artifact contains data about a concrete Maven
    artifact.
  - It has two coordinates, the coordinate of the concrete group the concrete
-   artifact belongs to and the name of concrete artifact.
+   artifact belongs to and the name of the concrete artifact.
 
-Version:
+#### Version
 
  - A Thing with the Aspect Version contains data about a concrete Maven version.
  - It has three coordinates, the coordinates of the concrete artifact the
    concrete version belongs to and the name of the concrete version itself (also
    called a "version string").
 
-Platform:
+#### Platform
 
  - A Thing with the Aspect Platform contains data about the code for a concrete
    Clojure platform that a concrete version contains.
@@ -82,7 +99,7 @@ Platform:
    lib-grimoire](https://github.com/clojure-grimoire/lib-grimoire/blob/master/src/grimoire/util.clj#L40-L53):
    "clj", "cljs", "cljclr", "ox", "pixi", "toc".
 
-Namespace:
+#### Namespace
 
  - A Thing with the Aspect Namespace contains data about a concrete Clojure
    namespace.
@@ -92,7 +109,7 @@ Namespace:
  - If S is the symbol the concrete namespace can be found by, `(str S)` is the
    name of the concrete namespace.
 
-Find:
+#### Find
 
  - A Thing with the Aspect Find contains data about a concrete find dug up in a
    concrete Clojure namespace.
@@ -107,5 +124,5 @@ Find:
  - The other Aspects of a Find define how to obtain the canonical name of the
    concrete find they describe. Those definitions have to match. There cannot be
    two different canonical names for the same concrete find.
- - The other Aspects of a Find also define how it looks when a concrete find is
+ - The other Aspects of a Find define how it looks when a concrete find is
    defined in a concrete namespace.
