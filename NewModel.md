@@ -39,3 +39,34 @@
       existed and adhered to some loose schema. Could we use that for anything?
       No. We still had no clue whether the information we wanted was actually
       there and in the expected shape.
+
+
+## A new, bootstrapped model
+
+ - Have only few basic elements: Object, Attributes and Aspects.
+ - An Object is an arbitrary piece of data.
+ - It has Attributes, which are identified by a name.
+ - The values of the Attributes are Objects.
+ -
+ - Attaching an aspect adds to the semantics of the data structure.
+ - All objects adhering to this model have the Aspect Ur.
+
+### Semantics of a data object having the Aspect Ur
+
+ - It has the attributes Aspects, which is a set containing at least Ur.
+ - In addition to that it can have arbitrary attributes with arbitray values.
+ - Aspects can contain more Aspects that limit (from above and below) the set of
+   attributes the object can have and the sets of values the attributes can
+   have. It describes the meaning of those attributes and values. Having these
+   two properties, an Aspect adds to the semantics of the object.
+
+### Bootstrapping Things
+
+ 1. An object with the Aspect Thing is called a "Thing".
+ 2. A Thing has the attributes Aspects, Coordinates and Bars.
+ 3. The Bars contain data about a concrete object, the "concrete Thing".
+ 4. The Coordinates tell where we can find the concrete Thing
+ 5. Every Bar is of a type.
+ 6. The type of a Bar defines the shape and the meaning of the data it can
+    contain.
+ 7. A Thing cannot have two Bars of the same type.
