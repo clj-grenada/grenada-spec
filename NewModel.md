@@ -41,32 +41,71 @@
       there and in the expected shape.
 
 
-## A new, bootstrapped model
 
- - Have only few basic elements: Object, Attributes and Aspects.
- - An Object is an arbitrary piece of data.
- - It has Attributes, which are identified by a name.
- - The values of the Attributes are Objects.
- -
- - Attaching an aspect adds to the semantics of the data structure.
- - All objects adhering to this model have the Aspect Ur.
 
-### Semantics of a data object having the Aspect Ur
+ - We have Things.
+ - A Thing is a data structures containing data about a concrete thing.
+ - Not writing "concrete" everywhere is okay as long as it's clear what is meant
+   (by capitalization in writing and by context in speaking).
+ - A Thing has Aspects that define its semantics.
+ - A Thing has Coordinates that tell where we can find the concrete thing.
+ - A Thing has Bars that are pieces of information about the concrete thing.
+ - A Thing has exactly one of the following Aspects.
 
- - It has the attributes Aspects, which is a set containing at least Ur.
- - In addition to that it can have arbitrary attributes with arbitray values.
- - Aspects can contain more Aspects that limit (from above and below) the set of
-   attributes the object can have and the sets of values the attributes can
-   have. It describes the meaning of those attributes and values. Having these
-   two properties, an Aspect adds to the semantics of the object.
+Group:
 
-### Bootstrapping Things
+ - A Thing with the Aspect Group contains data about a concrete Maven group.
+ - It has one coordinate, the name of the concrete group.
 
- 1. An object with the Aspect Thing is called a "Thing".
- 2. A Thing has the attributes Aspects, Coordinates and Bars.
- 3. The Bars contain data about a concrete object, the "concrete Thing".
- 4. The Coordinates tell where we can find the concrete Thing
- 5. Every Bar is of a type.
- 6. The type of a Bar defines the shape and the meaning of the data it can
-    contain.
- 7. A Thing cannot have two Bars of the same type.
+Artifact:
+
+ - A Thing with the Aspect Artifact contains data about a concrete Maven
+   artifact.
+ - It has two coordinates, the coordinate of the concrete group the concrete
+   artifact belongs to and the name of concrete artifact.
+
+Version:
+
+ - A Thing with the Aspect Version contains data about a concrete Maven version.
+ - It has three coordinates, the coordinates of the concrete artifact the
+   concrete version belongs to and the name of the concrete version itself (also
+   called a "version string").
+
+Platform:
+
+ - A Thing with the Aspect Platform contains data about the code for a concrete
+   Clojure platform that a concrete version contains.
+ - It has four coordinates, the coordinates of the concrete version that
+   contains the code for the concrete platform and the canonical name of the
+   concrete platform itself.
+ - Canonical names for the concrete platforms are the same as [those defined in
+   lib-grimoire](https://github.com/clojure-grimoire/lib-grimoire/blob/master/src/grimoire/util.clj#L40-L53):
+   "clj", "cljs", "cljclr", "ox", "pixi", "toc".
+
+Namespace:
+
+ - A Thing with the Aspect Namespace contains data about a concrete Clojure
+   namespace.
+ - It has five coordinates, the coordinates of the concrete platform whose code
+   contains the concrete namespace and the name of the concrete namespace
+   itself.
+ - If S is the symbol the concrete namespace can be found by, `(str S)` is the
+   name of the concrete namespace.
+
+Find:
+
+ - A Thing with the Aspect Find contains data about a concrete find dug up in a
+   concrete Clojure namespace.
+ - A concrete find is something that is defined in some way in a concrete
+   Clojure namespace. There are many kinds of finds imaginable, for example fns
+   and deftypes.
+ - The more specific semantics of a Find and a definition of the kind of find it
+   contains data for are defined by the Find's other Aspects.
+ - A Find has six coordinates, the coordinates of the concrete namespace in
+   which the concrete find is defined and the canonical name of the concrete
+   find itself.
+ - The other Aspects of a Find define how to obtain the canonical name of the
+   concrete find they describe. Those definitions have to match. There cannot be
+   two different canonical names for the same concrete find.
+ - The other Aspects of a Find also define how it looks when a concrete find is
+   defined in a concrete namespace.
