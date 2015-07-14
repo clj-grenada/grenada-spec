@@ -89,3 +89,67 @@ Example:
       - Take care with …. There might suddenly appear …. Check twice that this
         doesn't happen. If it happens, convert … to … and look if you can get
         the version m.n.o of ….
+
+## Code
+
+Other code has to work with your Aspect, so you have to render a minor part of
+the above Things in code. Write a namespace like this:
+
+  ```clojure
+  (ns <suffix>.aspects
+    "<documentation for this namespace>"
+    …
+    (:require [grenada.things.def :as things.def]))
+
+  (defn <aspect-name>-info
+    "<documentation for this aspect>"
+    []
+    (things.def/map->Aspect {:name ::<aspect-name>
+                             :prerequisites <prerequisites>
+                             :name-validator <name-validator>}))
+
+  ;;;; optional
+
+  (defn aspect-infos
+    "Returns a collection of the definitions of all Aspects defined in this
+    namespace."
+    []
+    #{<aspect-name>-def})
+  ```
+
+ - `<suffix>` can be anything you want.
+ - `<aspect-name>` is the name you want to give your Aspect.
+ - `<prerequisites>` is the set of prerequisites as defined above.
+ - `<name-validator>` is a function that will be passed the name (i.e. the last
+   coordinate) of the Thing the Aspect is going to be applied to. If it returns
+   something falsey, attaching the Aspect will fail. The default for
+   `:name-validator` is `(constantly true)`.
+ - `<documentation …>` might be a good place to put the definitions which I
+   talked about above.
+
+Example:
+
+  ```clojure
+  (ns grenada.aspects
+    "Definitions of the Aspects provided by Grenada."
+    …
+    (:require [grenada.things.def :as things.def]))
+
+  (defn fn-info
+    "Returns information about the aspect `::fn`. This Aspect is defined as
+    follows:
+
+    ## Semantics
+
+    …
+    …"
+    {:doro.bars/doc-format "CommonMark"}
+    []
+    (things.def/map->Aspect {:name ::fn
+                             :prerequisites #{::t/find ::var-backed}})
+
+    (defn aspect-infos
+      "…"
+      []
+      #{… ::fn …}))
+  ```
