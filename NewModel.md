@@ -106,8 +106,9 @@
  - It has five coordinates, the coordinates of the concrete platform whose code
    contains the concrete namespace and the name of the concrete namespace
    itself.
- - If S is the symbol the concrete namespace can be found by, `(str S)` is the
-   name of the concrete namespace.
+ - In Clojure, namespaces are named with symbols. In Grenada we're only dealing
+   with strings, so if `s` is the symbol that names a namespace in Clojure is
+   `(str s)` is its name in Grenada.
 
 #### Find
 
@@ -121,8 +122,27 @@
  - A Find has six coordinates, the coordinates of the concrete namespace in
    which the concrete find is defined and the canonical name of the concrete
    find itself.
- - The other Aspects of a Find define how to obtain the canonical name of the
-   concrete find they describe. Those definitions have to match. There cannot be
-   two different canonical names for the same concrete find.
- - The other Aspects of a Find define how it looks when a concrete find is
-   defined in a concrete namespace.
+ - If not otherwise clear by internment, a Find X is said to be defined in a
+   namespace N if the code that sets it into existence occors after the
+   declaration of N via and before the declaration of any other namespace via
+   `(ns …)` forms.
+ - The Aspect Find itself doesn't define how the canonical name of a Find should
+   be obtained. Since a Thing has to have a name, a Find has to have at least
+   one other Aspect that defines how its canonical name is to be obtained.
+
+
+### QYMH (Questions you might have)
+
+*Aspects are not allowed to make statements about the Bars. What about the Cmeta
+Bar? Surely the Cmetadata entries of fns are different from those of plain
+var-defs. So, implicitly the Aspect is making a statement about the Cmeta Bar,
+isn't it?*
+
+Yes, it would, if there was a Cmeta Bar. However, exactly for the reasons that
+the contents and shape of Cmetadata are very fuzzily defined in Clojure and even
+vary from case to case, I would advise against defining a Cmeta Bar at all.
+Rather, we should have Bars that are derived from Cmetadata entries like
+`:arglists`, but no Bars that capture the whole Cmetadata map.
+
+If you still find it practical to define a Cmeta Bar, you should only look at
+its contents and not at any Aspects in order to decide what you want to do.
