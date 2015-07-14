@@ -43,6 +43,8 @@ I've already played with the following keys for extension entries:
  - `:voyt.ext/defines` for a list of symbols a macro defines.
  - `:grenada.ext.default/doc` for doc strings on Things that don't support doc
    strings.
+ - `:doro.bars/markup-lang` for indicating the markup language used for a doc
+   string.
 
 ## Filesystem/JAR format
 
