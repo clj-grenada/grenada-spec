@@ -126,6 +126,9 @@
    namespace N if the code that sets it into existence occors after the
    declaration of N via and before the declaration of any other namespace via
    `(ns …)` forms.
+ - If a Find cannot be associated with any namespace (example: Clojure special
+   forms), it has to have at least one Aspect that also defines what the
+   namespace coordinate shall be.
  - The Aspect Find itself doesn't define how the canonical name of a Find should
    be obtained. Since a Thing has to have a name, a Find has to have at least
    one other Aspect that defines how its canonical name is to be obtained.
