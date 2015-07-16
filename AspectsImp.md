@@ -4,22 +4,25 @@ If you want to define an Aspect A, you have to do the following things.
 
 ## Prerequisites
 
-Think about which other Aspects a Thing has to have for A to be added. Write
-down those in a set.
+Think about which other Aspects a Thing has to have for A to be added. Write a
+function that when passed a set of Aspects that fulfils the prerequisites,
+returns `true`, otherwise falsey.
 
 > ##### Example
 >
-> *You want to declare the Aspect `:grenada.aspects/fn`. `:a/fn` (Outside code I
-> will write `a` for `grenada.aspects`.) requires that a Thing already be
+> *You want to declare the Aspect `:grenada.aspects/fn`. `:a/fn` (outside code I
+> will write `a` for `grenada.aspects`) requires that a Thing already be
 > `:a/find` and `:a/var-backed`. So you write:*
 >
 > ```clojure
-> #{:grenada.aspects/find :grenada.aspects/var-backed}
+> (defn fn-prereqs-fulfilled? [aspects]
+>   (set/subset? #{:grenada.aspects/find :grenada.aspects/var-backed}
+>                aspects))
 > ```
 
-Note that Grenada doesn't resolve dependencies for you, because dependency
-chains are expected to be short. That's why you have to write `:a/find` even
-though it's implied by `:a/var-backed`.
+Note that `:a/var-backed` implies `:a/find` (though the definitions are not
+written down yet). Being explicit might avoid [version problems](#changelog),
+but it's up to your judgement.
 
 ## Semantics
 
@@ -102,29 +105,31 @@ the above Things in code. Write a namespace like this:
     …
     (:require [grenada.things.def :as things.def]))
 
-  (defn <aspect-name>-info
+  (defn <aspect name>-def
     "<documentation for this aspect>"
     []
-    (things.def/map->Aspect {:name ::<aspect-name>
-                             :prerequisites <prerequisites>
-                             :name-validator <name-validator>}))
+    (things.def/map->Aspect {:name ::<aspect name>
+                             :prereqs-pred <prerequisites predicate>
+                             :name-pred <name predicate>}))
 
   ;;;; optional
 
-  (defn aspect-infos
+  (defn aspect-defs
     "Returns a collection of the definitions of all Aspects defined in this
     namespace."
     []
-    #{<aspect-name>-def})
+    #{<aspect name>-def})
   ```
 
  - `<suffix>` can be anything you want.
- - `<aspect-name>` is the name you want to give your Aspect.
- - `<prerequisites>` is the set of prerequisites as defined above.
- - `<name-validator>` is a function that will be passed the name (i.e. the last
+ - `<aspect name>` is the name you want to give your Aspect.
+ - `<prerequisites predicate>` is the function checking prerequisites as defined
+   [above](#prerequisites). The default for `:prereqs-pred` is `(constantly
+   true)`.
+ - `<name predicate>` is a function that will be passed the name (i.e. the last
    coordinate) of the Thing the Aspect is going to be applied to. If it returns
    something falsey, attaching the Aspect will fail. The default for
-   `:name-validator` is `(constantly true)`.
+   `:name-pred` is `(constantly true)`.
  - `<documentation …>` might be a good place to put the definitions which I
    talked about above.
 
@@ -137,7 +142,7 @@ the above Things in code. Write a namespace like this:
 >   (:require [grenada.things :as t]
 >             [grenada.things.def :as things.def]))
 >
-> (defn fn-info
+> (defn fn-def
 >   "Returns information about the aspect `::fn`. This Aspect is defined as
 >   follows:
 >
@@ -147,10 +152,10 @@ the above Things in code. Write a namespace like this:
 >   {:doro.bars/markup-lang "CommonMark"}
 >   []
 >   (things.def/map->Aspect {:name ::fn
->                            :prerequisites #{::t/find ::var-backed}})
+>                            :prereqs-pred fn-prereqs-fulfilled?})
 >
->   (defn aspect-infos
+>   (defn aspect-defs
 >     "…"
 >     []
->     #{… ::fn …}))
+>     #{… fn-def …}))
 > ```
