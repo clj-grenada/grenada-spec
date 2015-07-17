@@ -1,30 +1,44 @@
 # Grenada Specification
 
 This is a rough and work-in-progress specification of how Grenada is supposed to
-work. It consists of this overview and the files (to be explored in this order):
+work. In the course of a major revision I haven't corrected the existing files,
+but added new ones. So currently we have two rather diverging sets of files,
+with the new ones being the state of the art and the old ones containing
+information that is partly outdated and partly still applies. Reconciliation
+will happen in a [visible](https://en.wikiquote.org/wiki/Herbert_A.%5fSimon)
+future.
+
+The specification consists of this overview and these files (to be explored in
+this order, first three are new, the others old school):
+
+ - [NewModel.md](NewModel.md) – The current definition of the model.
+
+ - [AspectsImp.md](AspectsImp.md) – Guide to defining Aspects.
+
+ - [BarsImp.md](BarsImp.md) – Guide to defining Bars.
 
  - [model-diagram.dia](model-diagram.dia) and
-   [model-diagram.pdf](model-diagram.pdf) – A UML class diagram describing the
-   data model which Grenada is based on. This diagram type might not be the
-   optimal fit, but it's better than if I make up something myself.
+   [model-diagram.pdf](model-diagram.pdf) (very outdated) – A UML class diagram
+   describing the data model which Grenada is based on. This diagram type might
+   not be the optimal fit, but it's better than if I make up something myself.
 
- - [GrenadaModel.md](GrenadaModel.md) – Comments on the data model that I don't
-   want to cram into the diagram.
+ - [GrenadaModel.md](GrenadaModel.md) (very outdated) – Comments on the data
+   model that I don't want to cram into the diagram.
 
- - [GrenadaDraft.md](GrenadaDraft.md) – Collection of information that didn't
-   fit anywhere else (or that I haven't made fit yet). Read the section on
-   terminology and skim the rest, then move on.
+ - [GrenadaDraft.md](GrenadaDraft.md) (kind of outdated) – Collection of
+   information that didn't fit anywhere else (or that I haven't made fit yet).
+   Read the section on terminology and skim the rest, then move on.
 
- - [GrenadaFormats.md](GrenadaFormats.md) – Specification of a concrete
-   implementation of the model. Describes different storage formats for
+ - [GrenadaFormats.md](GrenadaFormats.md) (partly outdated) – Specification of a
+   concrete implementation of the model. Describes different storage formats for
    different purposes.
 
- - [GrenadaParts.md](GrenadaParts.md) – Description of conceptual components for
-   assembling Grenada build processes.
+ - [GrenadaParts.md](GrenadaParts.md) (not so much outdated) – Description of
+   conceptual components for assembling Grenada build processes.
 
- - [GrenadaScenarios.md](GrenadaScenarios.md) – Formally this also belongs to
-   this specification, but it is more a historical heap of notes than anything
-   else. You can ignore it.
+ - [GrenadaScenarios.md](GrenadaScenarios.md) (never been current) – Formally
+   this also belongs to this specification, but it is more a historical heap of
+   notes than anything else. You can ignore it.
 
 
 ## Version
