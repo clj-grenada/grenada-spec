@@ -1,4 +1,4 @@
-# Implementing Aspects
+# Defining Aspects
 
 If you want to define an Aspect A, you have to do the following things.
 
@@ -105,24 +105,26 @@ the above Things in code. Write a namespace like this:
     …
     (:require [grenada.things.def :as things.def]))
 
-  (defn <aspect name>-def
-    "<documentation for this aspect>"
+  …
+
+  (defn <Aspect name>-def
+    "<documentation for this Aspect>"
     []
-    (things.def/map->Aspect {:name ::<aspect name>
+    (things.def/map->Aspect {:name ::<Aspect name>
                              :prereqs-pred <prerequisites predicate>
                              :name-pred <name predicate>}))
 
+  …
+
   ;;;; optional
 
-  (defn aspect-defs
-    "Returns a collection of the definitions of all Aspects defined in this
-    namespace."
-    []
-    #{<aspect name>-def})
+  (def aspect-defs
+    "A collection of the definitions of all Aspects defined in this namespace."
+    #{… <Aspect name>-def …})
   ```
 
  - `<suffix>` can be anything you want.
- - `<aspect name>` is the name you want to give your Aspect.
+ - `<Aspect name>` is the name you want to give your Aspect.
  - `<prerequisites predicate>` is the function checking prerequisites as defined
    [above](#prerequisites). The default for `:prereqs-pred` is `(constantly
    true)`.
@@ -130,8 +132,8 @@ the above Things in code. Write a namespace like this:
    coordinate) of the Thing the Aspect is going to be applied to. If it returns
    something falsey, attaching the Aspect will fail. The default for
    `:name-pred` is `(constantly true)`.
- - `<documentation …>` might be a good place to put the definitions which I
-   talked about above.
+ - `<documentation …>` might be good places to put all the prose rest of the
+   Aspect definition.
 
 > ##### Example
 >
@@ -142,20 +144,27 @@ the above Things in code. Write a namespace like this:
 >   (:require [grenada.things :as t]
 >             [grenada.things.def :as things.def]))
 >
+> …
+>
+> ;;; The defns from above would go somewhere here.
+>
+> …
+>
 > (defn fn-def
->   "Returns information about the aspect `::fn`. This Aspect is defined as
+>   "Returns information about the Aspect `::fn`. This Aspect is defined as
 >   follows:
 >
 >   ## Semantics
 >   …
 >   …"
->   {:doro.bars/markup-lang "CommonMark"}
+>   {:doro.bars/markup :common-mark}
 >   []
 >   (things.def/map->Aspect {:name ::fn
 >                            :prereqs-pred fn-prereqs-fulfilled?})
 >
->   (defn aspect-defs
+> …
+>
+>   (def aspect-defs
 >     "…"
->     []
 >     #{… fn-def …}))
 > ```

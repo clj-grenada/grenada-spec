@@ -144,7 +144,7 @@ Follow this model:
 >
 > …
 >
-> ; The defns from above should go somewhere here.
+> ;;; The defns from above would go somewhere here.
 >
 > …
 >
@@ -160,9 +160,6 @@ Follow this model:
 >
 >                         :aspect-prereqs-pred
 >                         markup-all-aspect-prereqs-fulfilled?
->
->                         :bar-prereqs-pred
->                         markup-all-bar-prereqs-fulfilled?
 >
 >                         :bar-valid-pred markup-valid?}))
 >
