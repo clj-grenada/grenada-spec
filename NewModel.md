@@ -62,8 +62,9 @@
    prerequisites of the Bar, that is, the Aspects and types of Bars required to
    be present on a Thing before the Bar can be added to it.
  - Nothing will stop you from requiring not only the presence of a Bar, but also
-   some properties of their contents. However, I advise against that, since it
-   might make version progression more difficult.
+   some properties of their contents. However, I advise against relying on
+   anything more than what the Bar *type* guarantees, since it might make
+   version progression more difficult.
  - A Thing cannot have two Bars of the same type.
 
 ### More on Aspects
