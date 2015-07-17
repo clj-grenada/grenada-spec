@@ -50,6 +50,9 @@
  - A Thing has Bars that *contain data* about the concrete thing.
  - A Thing has Aspects that *define its semantics*.
  - A Thing has Coordinates that tell where we can find the concrete thing.
+ - The parent Thing P of a Thing C is the Thing with C's coordinates except the
+   last. Please extrapolate this to other notions of relatedness like "child",
+   "ancestor" etc.
 
 ### More on Bars
 
