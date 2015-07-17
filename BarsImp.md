@@ -4,29 +4,6 @@ If you want to define a Bar B, you have to do the following things. (In some
 aspects, Bars are similar to Aspects, so you will see some referrals to the
 [Aspects guide](AspectsImp.md). You'd better read it first. It isn't that long.)
 
-## Prerequisites
-
-Think about which Aspects and other Bars a Thing has to have for B to be added.
-Write functions that check a Thing's Aspects and Bars in the same fashion as the
-[function that checks Aspects prerequisites](AspectsImp.md#prerequisites).
-
-See the [rules of the model for Bars](NewModel.md#more-on-bars) for advice on
-whether or not to look at Bars' contents in these predicates.
-
-> ##### Example
->
-> *Right now I can't come up with a Bar that depends on another Bar's presence,
-> so I will provide only an Aspect prerequisite. We're defining the Bar
-> `:doro.bars/markup-all`.*
->
-> ```clojure
-> (require '[grenada.things :as t])
->
-> (defn markup-all-aspect-prereqs-fulfilled? [aspects]
->   (some #(above-incl :t/namespace %) aspects))
-> ```
-
-
 ## Model
 
 Write down how your Bar will look and what the data in it will mean. How you do
@@ -84,6 +61,28 @@ free-form, with Prismatic Schema, using guten-tag, or both.
 I recommend only using objects that can be printed using `pr` and then read
 using `clojure.edn/read`. Otherwise your Bar can't be persisted. Support for
 custom writer and reader fns might be added later, though.
+
+## Prerequisites
+
+Think about which Aspects and other Bars a Thing has to have for B to be added.
+Write functions that check a Thing's Aspects and Bars in the same fashion as the
+[function that checks Aspects prerequisites](AspectsImp.md#prerequisites).
+
+See the [rules of the model for Bars](NewModel.md#more-on-bars) for advice on
+whether or not to look at Bars' contents in these predicates.
+
+> ##### Example
+>
+> *Right now I can't come up with a Bar that depends on another Bar's presence,
+> so I will provide only an Aspect prerequisite.*
+>
+> ```clojure
+> (require '[grenada.things :as t])
+>
+> (defn markup-all-aspect-prereqs-fulfilled? [aspects]
+>   (some #(t/above-incl :t/namespace %) aspects))
+> ```
+
 
 ## Remarks
 
