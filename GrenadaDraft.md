@@ -43,6 +43,8 @@ I've already played with the following keys for extension entries:
  - `:voyt.ext/defines` for a list of symbols a macro defines.
  - `:grenada.ext.default/doc` for doc strings on Things that don't support doc
    strings.
+ - `:grenada.ext.default/protocol-map` for the map that is stored in a Var when
+   a protocol is created.
  - `:doro.bars/markup` and `:doro.bars/markup-all` for indicating the markup
    language used for a doc string or the doc strings of all children things,
    respectively.
