@@ -10,13 +10,13 @@ Write down what it means when a Thing has the Aspect A.
 >
 > *(Outside code I will write `a` for `grenada.aspects`.)*
 >
-> A Thing with the Aspect `:a/fn` describes a concrete Clojure fn, that is, an
-> object that satisfies `fn?`.
+> A Thing with the Aspect `:a/fn` describes a **concrete Clojure fn**, that is,
+> an object that satisfies `fn?`.
 
 ## Prerequisites
 
 Think about which other Aspects a Thing has to have for A to be added. Write a
-function that when passed a set of Aspects that fulfils the prerequisites,
+function that when **passed a set of Aspects** that fulfils the prerequisites,
 returns `true`, otherwise falsey.
 
 > ##### Example
@@ -47,18 +47,26 @@ Write down how the canonical name of the concrete Thing can be obtained.
 > Be v a var interned in some namespace under the symbol `s`. v was interned
 > when some concrete thing x was defined. X is the `:a/var-backed` Find that
 > contains data about x. `(str s)` is the name of X.
+>
+> ```
+> (ns name.space)
+>                      (ns-interns (find-ns 'name.space))
+>                      ;=> {… …
+> (def… … …)   ---->        s v
+>                           … …}
+> ```
 
 ## Remarks
 
-Write down anything that you think is important to know about A. If there's a
-lot to know about A, you might structure this section more. If you would
+Write down anything that you think is **important to know** about A. If there's
+a lot to know about A, you might structure this section more. If you would
 generally want to change the structure of defining an Aspect, please start a
 discussion.
 
 > ##### Example
 >
 > Somewhat confusingly, Finds with the Aspect `:a/fn` can have multiple
-> different names. For example, see this:
+> **different names**. For example, see this:
 >
 > ```clojure
 > user=> (def bark (fn miaow [] (throw (Exception. "🐷 Grunt."))))
@@ -74,12 +82,14 @@ example, `bark`.
 
 ## Changelog
 
-You should document every change you make to the definition of an Aspect, the
-problems it causes when old data are processed and how to solve these problems.
+You should document **every change** you make to the definition of an Aspect,
+the **problems** it causes when old data are processed and how to **solve**
+these problems.
 
-Reason: Aspects don't have version numbers, since this would make APIs horrible to use.
-Instead, we have to make version problems relatively easy to resolve. For this
-we need comprehensive changelogs that guide in diagnosing and fixing problems.
+Reason: Aspects don't have version numbers, since this would make APIs horrible
+to use. Instead, we have to make **version problems** relatively easy to
+resolve. For this we need comprehensive changelogs that guide in **diagnosing
+and fixing** problems.
 
 > ##### Example
 >
@@ -88,11 +98,11 @@ we need comprehensive changelogs that guide in diagnosing and fixing problems.
 >  - The semantics of Aspect `:a/fn` changed in this and that way. This might
 >    result in these problems with old data:
 >
->     - The … might throw …. In this case you have to apply ….
+>     - The … might throw **…**. In this case you have to apply ….
 >
->     - Take care with …. There might suddenly appear …. Check twice that this
->       doesn't happen. If it happens, convert … to … and look if you can get
->       version m.n.o of ….
+>     - Take care with **…**. There might suddenly appear **…**. **Check** twice
+>       that this doesn't happen. If it happens, convert … to … and look if you
+>       can get version m.n.o of ….
 
 ## Code
 
@@ -126,11 +136,11 @@ the above Things in code. Write a namespace like this:
  - `<suffix>` can be anything you want.
  - `<Aspect name>` is the name you want to give your Aspect.
  - `<prerequisites predicate>` is the function checking prerequisites as defined
-   [above](#prerequisites). The default for `:prereqs-pred` is `(constantly
+   [above](#prerequisites). The **default** for `:prereqs-pred` is `(constantly
    true)`.
  - `<name predicate>` is a function that will be passed the name (i.e. the last
    coordinate) of the Thing the Aspect is going to be applied to. If it returns
-   something falsey, attaching the Aspect will fail. The default for
+   something falsey, attaching the Aspect will fail. The **default** for
    `:name-pred` is `(constantly true)`.
  - `<documentation …>` might be good places to put all the prose rest of the
    Aspect definition.
