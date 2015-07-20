@@ -11,11 +11,11 @@ future.
 The specification consists of this overview and these files (to be explored in
 this order, first three are new, the others old school):
 
- - [NewModel.md](NewModel.md) – The current definition of the model.
+ - [NewModel.md](NewModel.md) – The current definition of the **model**.
 
- - [AspectsImp.md](AspectsImp.md) – Guide to defining Aspects.
+ - [AspectsImp.md](AspectsImp.md) – Guide to defining **Aspects**.
 
- - [BarsImp.md](BarsImp.md) – Guide to defining Bars.
+ - [BarsImp.md](BarsImp.md) – Guide to defining **Bars**.
 
  - [model-diagram.dia](model-diagram.dia) and
    [model-diagram.pdf](model-diagram.pdf) (very outdated) – A UML class diagram
@@ -27,18 +27,34 @@ this order, first three are new, the others old school):
 
  - [GrenadaDraft.md](GrenadaDraft.md) (kind of outdated) – Collection of
    information that didn't fit anywhere else (or that I haven't made fit yet).
-   Read the section on terminology and skim the rest, then move on.
+   Read the section on **terminology** and skim the rest, then move on.
 
  - [GrenadaFormats.md](GrenadaFormats.md) (partly outdated) – Specification of a
-   concrete implementation of the model. Describes different storage formats for
-   different purposes.
+   concrete **implementation** of the model. Describes different **storage**
+   formats for different purposes.
 
  - [GrenadaParts.md](GrenadaParts.md) (not so much outdated) – Description of
-   conceptual components for assembling Grenada build processes.
+   conceptual components for assembling Grenada **build processes**.
 
  - [GrenadaScenarios.md](GrenadaScenarios.md) (never been current) – Formally
    this also belongs to this specification, but it is more a historical heap of
    notes than anything else. You can ignore it.
+
+
+## `**Strong**` text
+
+Littered throughout the new parts of the spec you will find words and phrases in
+bold face. (Or at least I guess that they are rendered in bold face by your
+favourite Markdown processor.) These are **not intended** as **extracts** of the
+**content** (as opposed to their use in this sentence). Rather, they are
+intended to **guide the reader's eye** when she's looking for specific
+information. At least most of the time.
+
+In other words: I expect people to read the spec once and then come back
+repeatedly to refresh their understanding of something they're working with.
+Text emphasis is a tool to make this easier. It is not the optimal tool. – If I
+could place keywords in the margin, I would do that. – But it's cheap and does
+the job well enough.
 
 
 ## Version
