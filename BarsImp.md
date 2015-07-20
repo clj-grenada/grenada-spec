@@ -157,7 +157,7 @@ Follow this model:
 >   ## Semantics
 >   …
 >   …"
->   {:doro.bars/markup :common-mark}
+>   {:grenada.cmeta/bars {:doro.bars/markup :common-mark}}
 >   (things.def/map->BarType
 >     {:name ::markup-all
 >      :aspect-prereqs-pred markup-all-aspect-prereqs-fulfilled?

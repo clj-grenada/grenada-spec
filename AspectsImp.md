@@ -167,7 +167,7 @@ the above Things in code. Write a namespace like this:
 >   ## Semantics
 >   …
 >   …"
->   {:doro.bars/markup :common-mark}
+>   {:grenada.cmeta/bars {:doro.bars/markup :common-mark}}
 >   []
 >   (things.def/map->Aspect {:name ::fn
 >                            :prereqs-pred fn-prereqs-fulfilled?})
