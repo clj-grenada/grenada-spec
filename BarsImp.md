@@ -109,7 +109,7 @@ Follow this model:
 (defn <Bar type name>-def
   "<documentation for this Bar type>"
   []
-  (things.def/map->BarType
+  (things.def/map->bar-type
     {:name ::<Bar type name>
      :aspect-prereqs-pred <Aspect prerequisites predicate>
      :bar-prereqs-pred <Bar prerequisites predicate>
@@ -158,7 +158,7 @@ Follow this model:
 >   …
 >   …"
 >   {:grenada.cmeta/bars {:doro.bars/markup :common-mark}}
->   (things.def/map->BarType
+>   (things.def/map->bar-type
 >     {:name ::markup-all
 >      :aspect-prereqs-pred markup-all-aspect-prereqs-fulfilled?
 >      :bar-valid-pred markup-valid?}))

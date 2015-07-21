@@ -120,7 +120,7 @@ the above Things in code. Write a namespace like this:
   (defn <Aspect name>-def
     "<documentation for this Aspect>"
     []
-    (things.def/map->Aspect {:name ::<Aspect name>
+    (things.def/map->aspect {:name ::<Aspect name>
                              :prereqs-pred <prerequisites predicate>
                              :name-pred <name predicate>}))
 
@@ -169,7 +169,7 @@ the above Things in code. Write a namespace like this:
 >   …"
 >   {:grenada.cmeta/bars {:doro.bars/markup :common-mark}}
 >   []
->   (things.def/map->Aspect {:name ::fn
+>   (things.def/map->aspect {:name ::fn
 >                            :prereqs-pred fn-prereqs-fulfilled?})
 >
 > …
