@@ -73,7 +73,7 @@ discussion.
 > #'user/bark
 > user=> (bark)
 >
-> Exception 🐷 Grunt.  user/meeow (NO_SOURCE_FILE:1)
+> Exception 🐷 Grunt.  user/miaow (NO_SOURCE_FILE:1)
 > user=>                 ; ‾‾‾‾‾
 > ```
 
