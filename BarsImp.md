@@ -96,19 +96,20 @@ See the [corresponding section in the Aspects guide](AspectsImp.md#changelog).
 ## Code
 
 Render those parts of the definition of β in code that can be rendered in code.
-Follow this model:
+Write a namespace that **exports a map** mapping Bar type keywords to Bar type
+definitions. I recommend naming it `def-for-bar-type`. Follow this model:
 
 ```clojure
 (ns <suffix>.bars
   "<documentation for this namespace>"
   …
-  (:require [grenada.things.def :as things.def]))
+  (:require [grenada.things.def :as things.def]
+            [grenada.guten-tag.more :as gt-more]))
 
 …
 
-(defn <Bar type name>-def
+(def <Bar type name>-def
   "<documentation for this Bar type>"
-  []
   (things.def/map->bar-type
     {:name ::<Bar type name>
      :aspect-prereqs-pred <Aspect prerequisites predicate>
@@ -117,11 +118,11 @@ Follow this model:
 
 …
 
-;;;; optional
+;;;; Public API
 
-(def bar-type defs
+(def def-for-bar-type
   "A collection of the definitions of all Aspects defined in this namespace."
-  #{… <Bar type name>-def …})
+  (gt-more/tvals->map #{… <Bar type name>-def …}))
 ```
 
  - `<suffix>` can be anything you want.
@@ -142,7 +143,8 @@ Follow this model:
 >   "Definitions of the Bars types provided by Doro. …"
 >   …
 >   (:require [grenada.things :as t]
->             [grenada.things.def :as things.def]))
+>             [grenada.things.def :as things.def]
+>             [grenada.guten-tag.more :as gt-more]))
 >
 > …
 >
@@ -150,7 +152,7 @@ Follow this model:
 >
 > …
 >
-> (defn markup-all-def
+> (def markup-all-def
 >   "Returns information about the Bar type `::markup-all`. This Bar type is
 >   defined as follows:
 >
@@ -161,13 +163,13 @@ Follow this model:
 >   (things.def/map->bar-type
 >     {:name ::markup-all
 >      :aspect-prereqs-pred markup-all-aspect-prereqs-fulfilled?
->      :bar-valid-pred markup-valid?}))
+>      :bar-valid-pred markup-all-valid?}))
 >
 > …
 >
 > (def bar-type-defs
 >   "…"
->   #{… markup-all-def …})
+>   (gt-more/tvals->map #{… markup-all-def …}))
 > ```
 
 TODO: Have the Bars types provide a Datomic schema. (RM 2015-07-17)

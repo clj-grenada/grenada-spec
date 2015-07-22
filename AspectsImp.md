@@ -107,30 +107,32 @@ and fixing** problems.
 ## Code
 
 Other code has to work with your Aspect, so you have to render a minor part of
-the above Things in code. Write a namespace like this:
+the above Things in code. Write a namespace that **exports a map** mapping
+Aspect keywords to Aspect definitions. I recommend naming it `def-for-aspect`.
+The whole thing might look like this:
 
   ```clojure
   (ns <suffix>.aspects
     "<documentation for this namespace>"
     …
-    (:require [grenada.things.def :as things.def]))
+    (:require [grenada.things.def :as things.def]
+              [guten-tag.more :as gt-more]))
 
   …
 
-  (defn <Aspect name>-def
+  (def <Aspect name>-def
     "<documentation for this Aspect>"
-    []
     (things.def/map->aspect {:name ::<Aspect name>
                              :prereqs-pred <prerequisites predicate>
                              :name-pred <name predicate>}))
 
   …
 
-  ;;;; optional
+  ;;;; Public API
 
-  (def aspect-defs
-    "A collection of the definitions of all Aspects defined in this namespace."
-    #{… <Aspect name>-def …})
+  (def def-for-aspect
+    "A map from Aspect keywords to definitions of Aspects in this namespace."
+    (gt-more/tvals->map #{… <Aspect name>-def …}))
   ```
 
  - `<suffix>` can be anything you want.
@@ -152,7 +154,8 @@ the above Things in code. Write a namespace like this:
 >   "Definitions of the Aspects provided by Grenada."
 >   …
 >   (:require [grenada.things :as t]
->             [grenada.things.def :as things.def]))
+>             [grenada.things.def :as things.def]
+>             [grenada.guten-tag.more :as gt-more))
 >
 > …
 >
@@ -160,7 +163,7 @@ the above Things in code. Write a namespace like this:
 >
 > …
 >
-> (defn fn-def
+> (def fn-def
 >   "Returns information about the Aspect `::fn`. This Aspect is defined as
 >   follows:
 >
@@ -168,13 +171,14 @@ the above Things in code. Write a namespace like this:
 >   …
 >   …"
 >   {:grenada.cmeta/bars {:doro.bars/markup :common-mark}}
->   []
 >   (things.def/map->aspect {:name ::fn
 >                            :prereqs-pred fn-prereqs-fulfilled?})
 >
 > …
 >
->   (def aspect-defs
+>   ;;;; Public API
+>
+>   (def def-for-aspect
 >     "…"
->     #{… fn-def …}))
+>     (gt-more/tvals->map #{… fn-def …}))
 > ```
