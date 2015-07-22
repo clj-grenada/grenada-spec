@@ -103,8 +103,7 @@ definitions. I recommend naming it `def-for-bar-type`. Follow this model:
 (ns <suffix>.bars
   "<documentation for this namespace>"
   …
-  (:require [grenada.things.def :as things.def]
-            [grenada.guten-tag.more :as gt-more]))
+  (:require [grenada.things.def :as things.def]))
 
 …
 
@@ -122,7 +121,7 @@ definitions. I recommend naming it `def-for-bar-type`. Follow this model:
 
 (def def-for-bar-type
   "A collection of the definitions of all Aspects defined in this namespace."
-  (gt-more/tvals->map #{… <Bar type name>-def …}))
+  (things.def/map-from-defs #{… <Bar type name>-def …}))
 ```
 
  - `<suffix>` can be anything you want.
@@ -143,8 +142,7 @@ definitions. I recommend naming it `def-for-bar-type`. Follow this model:
 >   "Definitions of the Bars types provided by Doro. …"
 >   …
 >   (:require [grenada.things :as t]
->             [grenada.things.def :as things.def]
->             [grenada.guten-tag.more :as gt-more]))
+>             [grenada.things.def :as things.def]))
 >
 > …
 >
@@ -169,7 +167,7 @@ definitions. I recommend naming it `def-for-bar-type`. Follow this model:
 >
 > (def bar-type-defs
 >   "…"
->   (gt-more/tvals->map #{… markup-all-def …}))
+>   (things.def/map-from-defs #{… markup-all-def …}))
 > ```
 
 TODO: Have the Bars types provide a Datomic schema. (RM 2015-07-17)
