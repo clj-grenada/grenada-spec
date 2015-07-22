@@ -6,9 +6,9 @@ some aspects, Bars are similar to Aspects, so you will see some referrals to the
 
 ## Model
 
-Write down Bars of type β will look and what the data in it will mean. How you
-do this is up to you, but ultimately it's the **interface** which the users of β
-  have to rely on. So try to be precise, yet comprehensible.
+Write down how a Bar of type β will look and what the data in it will mean. How
+you do this is up to you, but ultimately it's the **interface** which the users
+of β have to rely on. So try to be precise, yet comprehensible.
 
 I strongly recommend writing a **predicate** that, given a Bar, returns if it
 conforms to β or not. There are several ways you can do this and, as always, you
