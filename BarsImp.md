@@ -129,9 +129,9 @@ definitions. I recommend naming it `def-for-bar-type`. Follow this model:
  - `<Bar type name>` is the name you want to give your Bar type.
  - `<Aspect prerequisites predicate>` and `<Bar prerequisites predicate>` are
    the functions checking prerequisites as defined [above](#prerequisites).
-   The **default** is `(constantly true)` in both cases.
+   The **default** is `(fn [_] true)` in both cases.
  - `<Bar validation predicate>` is the function checking if the Bar is
-   well-formed as defined [above](#model). The **default** is `(constantly
+   well-formed as defined [above](#model). The **default** is `(fn [_]
    true)`.
  - `<documentation …>` might be good places to put all the prose rest of the
    Bar type definition.

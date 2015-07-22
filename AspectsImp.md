@@ -138,12 +138,12 @@ The whole thing might look like this:
  - `<suffix>` can be anything you want.
  - `<Aspect name>` is the name you want to give your Aspect.
  - `<prerequisites predicate>` is the function checking prerequisites as defined
-   [above](#prerequisites). The **default** for `:prereqs-pred` is `(constantly
+   [above](#prerequisites). The **default** for `:prereqs-pred` is `(fn [_]
    true)`.
  - `<name predicate>` is a function that will be passed the name (i.e. the last
    coordinate) of the Thing the Aspect is going to be applied to. If it returns
    something falsey, attaching the Aspect will fail. The **default** for
-   `:name-pred` is `(constantly true)`.
+   `:name-pred` is `(fn [_] true)`.
  - `<documentation …>` might be good places to put all the prose rest of the
    Aspect definition.
 
