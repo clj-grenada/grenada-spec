@@ -151,8 +151,7 @@ definitions. I recommend naming it `def-for-bar-type`. Follow this model:
 > …
 >
 > (def markup-all-def
->   "Returns information about the Bar type `::markup-all`. This Bar type is
->   defined as follows:
+>   "Definition of the Bar type `::markup-all`.
 >
 >   ## Semantics
 >   …

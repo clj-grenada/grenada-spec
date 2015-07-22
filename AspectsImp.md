@@ -162,8 +162,7 @@ The whole thing might look like this:
 > …
 >
 > (def fn-def
->   "Returns information about the Aspect `::fn`. This Aspect is defined as
->   follows:
+>   "Definition of the Aspect `::fn`.
 >
 >   ## Semantics
 >   …
