@@ -81,7 +81,7 @@ whether or not to look at **Bars' contents** in these predicates.
 > (require '[grenada.things :as t])
 >
 > (defn markup-all-aspect-prereqs-fulfilled? [aspects]
->   (some #(t/above-incl :t/namespace %) aspects))
+>   (some #(t/above-incl ::t/namespace %) aspects))
 > ```
 
 
