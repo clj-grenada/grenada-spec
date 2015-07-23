@@ -81,7 +81,7 @@ whether or not to look at **Bars' contents** in these predicates.
 > (require '[grenada.things :as t])
 >
 > (defn markup-all-aspect-prereqs-fulfilled? [aspects]
->   (some #(t/above-incl :t/namespace %) aspects))
+>   (some #(t/above-incl ::t/namespace %) aspects))
 > ```
 
 
@@ -103,8 +103,7 @@ definitions. I recommend naming it `def-for-bar-type`. Follow this model:
 (ns <suffix>.bars
   "<documentation for this namespace>"
   …
-  (:require [grenada.things.def :as things.def]
-            [grenada.guten-tag.more :as gt-more]))
+  (:require [grenada.things.def :as things.def]))
 
 …
 
@@ -122,7 +121,7 @@ definitions. I recommend naming it `def-for-bar-type`. Follow this model:
 
 (def def-for-bar-type
   "A collection of the definitions of all Aspects defined in this namespace."
-  (gt-more/tvals->map #{… <Bar type name>-def …}))
+  (things.def/map-from-defs #{… <Bar type name>-def …}))
 ```
 
  - `<suffix>` can be anything you want.
@@ -143,8 +142,7 @@ definitions. I recommend naming it `def-for-bar-type`. Follow this model:
 >   "Definitions of the Bars types provided by Doro. …"
 >   …
 >   (:require [grenada.things :as t]
->             [grenada.things.def :as things.def]
->             [grenada.guten-tag.more :as gt-more]))
+>             [grenada.things.def :as things.def]))
 >
 > …
 >
@@ -152,14 +150,14 @@ definitions. I recommend naming it `def-for-bar-type`. Follow this model:
 >
 > …
 >
-> (def markup-all-def
->   "Returns information about the Bar type `::markup-all`. This Bar type is
->   defined as follows:
+> (def
+>   ^{:grenada.cmeta/bars {:doro.bars/markup :common-mark}}
+>   markup-all-def
+>   "Definition of the Bar type `::markup-all`.
 >
 >   ## Semantics
 >   …
 >   …"
->   {:grenada.cmeta/bars {:doro.bars/markup :common-mark}}
 >   (things.def/map->bar-type
 >     {:name ::markup-all
 >      :aspect-prereqs-pred markup-all-aspect-prereqs-fulfilled?
@@ -169,7 +167,7 @@ definitions. I recommend naming it `def-for-bar-type`. Follow this model:
 >
 > (def bar-type-defs
 >   "…"
->   (gt-more/tvals->map #{… markup-all-def …}))
+>   (things.def/map-from-defs #{… markup-all-def …}))
 > ```
 
 TODO: Have the Bars types provide a Datomic schema. (RM 2015-07-17)

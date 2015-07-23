@@ -115,8 +115,7 @@ The whole thing might look like this:
   (ns <suffix>.aspects
     "<documentation for this namespace>"
     …
-    (:require [grenada.things.def :as things.def]
-              [guten-tag.more :as gt-more]))
+    (:require [grenada.things.def :as things.def]))
 
   …
 
@@ -132,7 +131,7 @@ The whole thing might look like this:
 
   (def def-for-aspect
     "A map from Aspect keywords to definitions of Aspects in this namespace."
-    (gt-more/tvals->map #{… <Aspect name>-def …}))
+    (things.def/map-from-defs #{… <Aspect name>-def …}))
   ```
 
  - `<suffix>` can be anything you want.
@@ -154,8 +153,7 @@ The whole thing might look like this:
 >   "Definitions of the Aspects provided by Grenada."
 >   …
 >   (:require [grenada.things :as t]
->             [grenada.things.def :as things.def]
->             [grenada.guten-tag.more :as gt-more))
+>             [grenada.things.def :as things.def]))
 >
 > …
 >
@@ -163,14 +161,14 @@ The whole thing might look like this:
 >
 > …
 >
-> (def fn-def
->   "Returns information about the Aspect `::fn`. This Aspect is defined as
->   follows:
+> (def
+>   ^{:grenada.cmeta/bars {:doro.bars/markup :common-mark}}
+>   fn-def
+>   "Definition of the Aspect `::fn`.
 >
 >   ## Semantics
 >   …
 >   …"
->   {:grenada.cmeta/bars {:doro.bars/markup :common-mark}}
 >   (things.def/map->aspect {:name ::fn
 >                            :prereqs-pred fn-prereqs-fulfilled?})
 >
@@ -180,5 +178,5 @@ The whole thing might look like this:
 >
 >   (def def-for-aspect
 >     "…"
->     (gt-more/tvals->map #{… fn-def …}))
+>     (things.def/map-from-defs #{… fn-def …}))
 > ```
