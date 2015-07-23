@@ -150,13 +150,14 @@ definitions. I recommend naming it `def-for-bar-type`. Follow this model:
 >
 > …
 >
-> (def markup-all-def
+> (def
+>   ^{:grenada.cmeta/bars {:doro.bars/markup :common-mark}}
+>   markup-all-def
 >   "Definition of the Bar type `::markup-all`.
 >
 >   ## Semantics
 >   …
 >   …"
->   {:grenada.cmeta/bars {:doro.bars/markup :common-mark}}
 >   (things.def/map->bar-type
 >     {:name ::markup-all
 >      :aspect-prereqs-pred markup-all-aspect-prereqs-fulfilled?

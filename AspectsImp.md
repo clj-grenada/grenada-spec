@@ -161,13 +161,14 @@ The whole thing might look like this:
 >
 > …
 >
-> (def fn-def
+> (def
+>   ^{:grenada.cmeta/bars {:doro.bars/markup :common-mark}}
+>   fn-def
 >   "Definition of the Aspect `::fn`.
 >
 >   ## Semantics
 >   …
 >   …"
->   {:grenada.cmeta/bars {:doro.bars/markup :common-mark}}
 >   (things.def/map->aspect {:name ::fn
 >                            :prereqs-pred fn-prereqs-fulfilled?})
 >
