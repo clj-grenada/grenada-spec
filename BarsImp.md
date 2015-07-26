@@ -10,10 +10,9 @@ Write down how a Bar of type β will look and what the data in it will mean. How
 you do this is up to you, but ultimately it's the **interface** which the users
 of β have to rely on. So try to be precise, yet comprehensible.
 
-I strongly recommend writing a **predicate** that, given a Bar, returns if it
-conforms to β or not. There are several ways you can do this and, as always, you
-should use the one that's most appropriate to the case. Examples are: completely
-free-form, with Prismatic Schema, using guten-tag, or both.
+I strongly recommend writing a **schema** or a **predicate** that, given a Bar,
+returns if it conforms to β or not. Or both. Do what's most appropriate to the
+case.
 
 > ##### Example
 >
@@ -113,7 +112,8 @@ definitions. I recommend naming it `def-for-bar-type`. Follow this model:
     {:name ::<Bar type name>
      :aspect-prereqs-pred <Aspect prerequisites predicate>
      :bar-prereqs-pred <Bar prerequisites predicate>
-     :bar-valid-pred <Bar validation predicate>}))
+     :valid-pred <Bar validation predicate>
+     :schema <Schema for Bar type>}))
 
 …
 
@@ -132,6 +132,8 @@ definitions. I recommend naming it `def-for-bar-type`. Follow this model:
  - `<Bar validation predicate>` is the function checking if the Bar is
    well-formed as defined [above](#model). The **default** is `(fn [_]
    true)`.
+ - `<Schema for Bar type>` is a Prismatic Schema that will be used to validate
+   Bars. The **default** is `schema.core/Any`.
  - `<documentation …>` might be good places to put all the prose rest of the
    Bar type definition.
 
