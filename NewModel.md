@@ -81,8 +81,9 @@
  - A Thing with the Aspect Find contains data about a **concrete find** dug up
    in a concrete Clojure namespace.
  - A concrete find is **something that is defined in some way** in a concrete
-   Clojure namespace. There are many kinds of finds imaginable, for example fns
-   and deftypes.
+   Clojure namespace or at least something that can occur in [**operator
+   position**](http://clojure.org/evaluation). There are many kinds of finds
+   imaginable, for example fns and deftypes.
  - The more specific **semantics** of a Find and a definition of the kind of
    find it contains data for are defined by the Find's other Aspects.
  - A Find has **six coordinates**, the coordinates of the concrete namespace in
