@@ -1,7 +1,7 @@
 # A new data model
 
  - We have **Things**.
- - A Thing is a data object containing data about a **concrete thing**.
+ - A Thing is an object containing data about a **concrete thing**.
  - (Not writing "concrete" everywhere is okay as long as it's made clear what is
    meant (by capitalization in writing and by context in speaking).)
  - A Thing has **Bars** that *contain data* about the concrete thing.
@@ -31,7 +31,7 @@
  - An Aspect may define **prerequisites**, that is, the Aspects required to be
    present on a Thing before the Aspect can be added to it.
  - A Thing cannot have two **conflicting Aspects**.
- - *A Thing has exactly one of the following Aspects.*
+ - *A Thing has exactly one of the following Aspects, also called Main Aspects.*
 
 ### Group
 

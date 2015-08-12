@@ -1,5 +1,7 @@
 # Defining Bar types
 
+TODO: Adapt these to how I actually defined them. (RM 2015-08-09)
+
 If you want to define a Bar type β, you have to do the following things. (In
 some aspects, Bars are similar to Aspects, so you will see some referrals to the
 [Aspects guide](AspectsImp.md). You'd better read it first. It isn't that long.)
