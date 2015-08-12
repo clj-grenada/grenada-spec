@@ -4,7 +4,19 @@
 Antilles.](https://upload.wikimedia.org/wikipedia/commons/5/53/Grenada_in_its_region.svg)](https://commons.wikimedia.org/wiki/File:Grenada_in_its_region.svg#/media/File:Grenada_in_its_region.svg)
 [(Listen also.)](http://www.bbc.co.uk/programmes/b02x5j69)
 
-Grenada is a Clojure metadata build and distribution system.
+Grenada is a Clojure metadata build and distribution system. Features:
+
+ - for **library authors**: assemble and publish documentation packages similar
+   to Javadoc JARs, but containing well-defined data.
+
+ - for **documentation editors**: bolster the documentation of existing Clojure
+   libraries; assemble documenation and examples from different sources.
+
+ - for **toolsmiths**: build on a rigorous yet flexible model of metadata about
+   things in the Clojure ecosystem.
+
+ - for **developers**: annotate Clojure objects that don't support doc strings with
+   easily accessible documentation (to be implemented).
 
 This repo houses the Grenada specification (start with reading the
 [overview](SpecOverview.md)) and other things, which I couldn't find a better
