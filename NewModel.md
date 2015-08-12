@@ -1,7 +1,7 @@
 # A new data model
 
  - We have **Things**.
- - A Thing is a data object containing data about a **concrete thing**.
+ - A Thing is an object containing data about a **concrete thing**.
  - (Not writing "concrete" everywhere is okay as long as it's made clear what is
    meant (by capitalization in writing and by context in speaking).)
  - A Thing has **Bars** that *contain data* about the concrete thing.
@@ -31,7 +31,7 @@
  - An Aspect may define **prerequisites**, that is, the Aspects required to be
    present on a Thing before the Aspect can be added to it.
  - A Thing cannot have two **conflicting Aspects**.
- - *A Thing has exactly one of the following Aspects.*
+ - *A Thing has exactly one of the following Aspects, also called Main Aspects.*
 
 ### Group
 
@@ -81,8 +81,9 @@
  - A Thing with the Aspect Find contains data about a **concrete find** dug up
    in a concrete Clojure namespace.
  - A concrete find is **something that is defined in some way** in a concrete
-   Clojure namespace. There are many kinds of finds imaginable, for example fns
-   and deftypes.
+   Clojure namespace or at least something that can occur in [**operator
+   position**](http://clojure.org/evaluation). There are many kinds of finds
+   imaginable, for example fns and deftypes.
  - The more specific **semantics** of a Find and a definition of the kind of
    find it contains data for are defined by the Find's other Aspects.
  - A Find has **six coordinates**, the coordinates of the concrete namespace in
