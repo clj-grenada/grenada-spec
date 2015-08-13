@@ -20,7 +20,8 @@ Grenada is a Clojure metadata build and distribution system. Features:
 
 This repo houses the Grenada specification (start with reading the
 [overview](SpecOverview.md)) and other things, which I couldn't find a better
-place for.
+place for. For an overview of Grenada documentation, [see
+here](https://github.com/clj-grenada/lib-grenada/doc/overview.md).
 
 ## Names
 
@@ -44,6 +45,17 @@ because its main task is producing and deploying Datadoc JARs.
 
 Datadoc is more about concretions: concrete data, concrete JARs. Grenada is more
 about abstractions: the Grenada model, the Grenada format, the Grenada spec.
+
+## Versions
+
+JARs with Clojure code have versions and Things use these versions in their
+version coordinate. Datadoc JARs also have versions and they contain Things with
+version coordinates. However, the version of a Datadoc JAR doesn't have to be
+coupled to the version coordinates of the Things it contains. You may choose to
+relate it in some way, but by no means have to.
+
+I promise that the versioning conundrum will get even worse with different
+versions of Bar types and Aspects. Proposals for solutions appreciated.
 
 ## Comparison
 
