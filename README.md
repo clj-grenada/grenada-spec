@@ -22,6 +22,29 @@ This repo houses the Grenada specification (start with reading the
 [overview](SpecOverview.md)) and other things, which I couldn't find a better
 place for.
 
+## Names
+
+There are two names which might sound new to you: Grenada and Datadoc. I am
+worried that having two names will cause confusion, but I can't settle on one of
+them. ‘Grenada’ is not desirable as a classifier for JARs. ‘Datadoc’ is already
+used by several, although minor, entities in the software world and therefore
+won't do as a name for the whole creation.
+
+So, endowing you with two new names, I will at least try to keep them
+unentangled, thus: *Grenada* is the name of the project, of the model and the
+data format defined in the spec, i. e. the name of most things. If you're not
+sure whether to call something *Grenada something* or *Datadoc something*,
+*Grenada something* is the safe bet. The library that implements the spec is
+called lib-grenada for that reason.
+
+*Datadoc* always has to do with JAR files. `datadoc` is the classifier for JARs
+that contain data in the Grenada format. You could also call it Datadoc data,
+but there is not rule about that. The Leiningen plugin is called lein-datadoc,
+because its main task is producing and deploying Datadoc JARs.
+
+Datadoc is more about concretions: concrete data, concrete JARs. Grenada is more
+about abstractions: the Grenada model, the Grenada format, the Grenada spec.
+
 ## Comparison
 
 Here a list of tools, libraries etc. that are more or less closely related (in
