@@ -2,6 +2,9 @@
 
 TODO: Adapt these to how I actually defined them. (RM 2015-08-09)
 
+*The **length** of Bar type definitions typically ranges from **15 to 80 lines**
+of text and code. Defining Bar types usually is neither tedious nor hard.*
+
 If you want to define a Bar type β, you have to do the following things. (In
 some aspects, Bars are similar to Aspects, so you will see some referrals to the
 [Aspects guide](AspectsImp.md). You'd better read it first. It isn't that long.)
