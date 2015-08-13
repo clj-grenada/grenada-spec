@@ -2,7 +2,7 @@
 
 [![Map indicating the location of Grenada in the Lesser
 Antilles.](https://upload.wikimedia.org/wikipedia/commons/5/53/Grenada_in_its_region.svg)](https://commons.wikimedia.org/wiki/File:Grenada_in_its_region.svg#/media/File:Grenada_in_its_region.svg)
-[(Listen also.)](http://www.bbc.co.uk/programmes/b02x5j69)
+(Listen also to [the BBC](http://www.bbc.co.uk/programmes/b02x5j69)).
 
 Grenada is a Clojure metadata build and distribution system. Features:
 
