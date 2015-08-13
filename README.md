@@ -132,9 +132,10 @@ Clojure documentation.
 
 ## Git Workflow
 
-Except for a few commits in the beginning, branching and merging follows
-[Driessen's model](http://nvie.com/posts/a-successful-git-branching-model/).
-Versions and releases are those of the specification.
+Except for a few commits in the beginning, branching and merging in all
+repositories under Grenada follows [Driessen's
+model](http://nvie.com/posts/a-successful-git-branching-model/). Versions and
+releases in this repository are those of the specification.
 
 ## See also
 
