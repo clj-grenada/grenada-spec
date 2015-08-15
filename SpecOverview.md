@@ -79,6 +79,12 @@ Contains only changes that can't be assigned to a single document. All
 changelogs only list changes I consider important and interesting. Typos,
 rewordings and additions of some notes are usually not included.
 
+### 1.0.0-rc.1
+
+ - Abandon the old model and introduce a [new one](NewModel.md).
+ - Adapt this overview to these changes.
+ - Improve the markup to make the text more easily accessible.
+
 ### 0.2.0
 
  - Introduce a proper model, comprising a [diagram](model-diagram.pdf) and a

@@ -159,6 +159,14 @@ way related to Grenada development.
 …to Reid McKenzie (@arrdem) and Alex Miller (@puredanger) for mentoring me in
 this project.
 
+## Changelog
+
+### 1.0.0-rc.1
+
+ - Introduce the term *Datadoc*.
+ - Try to be more clear introducing Grenada.
+ - Try to be more clear about versions in different places.
+
 ## License
 
 Copyright (c) 2015 Richard Möhn
