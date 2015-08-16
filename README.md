@@ -28,7 +28,7 @@ Grenada is a Clojure metadata build and distribution system. Features:
 This repo houses the Grenada specification (start with reading the
 [overview](SpecOverview.md)) and other things, which I couldn't find a better
 place for. For an overview of Grenada documentation, [see
-here](https://github.com/clj-grenada/lib-grenada/doc/overview.md).
+here](https://github.com/clj-grenada/lib-grenada/blob/master/doc/overview.md).
 
 ## Names
 

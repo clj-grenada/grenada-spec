@@ -1,7 +1,7 @@
 # Grenada Specification
 
 (If this is not what you were looking for, see the [general
-overview](https://github.com/clj-grenada/lib-grenada/doc/overview.md).)
+overview](https://github.com/clj-grenada/lib-grenada/blob/master/doc/overview.md).)
 
 This is a rough and work-in-progress specification of how Grenada is supposed to
 work. In the course of a major revision I haven't corrected the existing files,
