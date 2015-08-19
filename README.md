@@ -6,22 +6,40 @@ Antilles.](https://upload.wikimedia.org/wikipedia/commons/5/53/Grenada_in_its_re
 
 Grenada is a Clojure metadata build and distribution system. Features:
 
- - for **library authors**: assemble and publish documentation packages similar
-   to Javadoc JARs, but containing well-defined data instead of HTML.
+ - for **library authors**: assemble and publish (API) documentation packages
+   similar to Javadoc JARs, but containing well-defined data instead of HTML.
+   [✈](https://github.com/clj-grenada/lein-datadoc/tree/master)
+
+ - for **developers**: provide structured information in addition to doc
+   strings.
+   [✈](https://github.com/clj-grenada/grenada-spec/blob/devel/NewModel.md)
+   Annotate Clojure objects that don't support doc strings with easily
+   accessible documentation (to be implemented).
 
  - for **documentation editors**: jazz up the documentation of existing Clojure
    libraries; assemble documentation and examples from different sources.
+   [✈](https://github.com/clj-grenada/lib-grenada/blob/master/doc/doc/tutorial.md)
 
  - for **toolsmiths**: build on a rigorously flexible model of metadata about
    things in the Clojure ecosystem.
+   [✈](https://github.com/clj-grenada/grenada-spec/blob/master/NewModel.md)
+   [✈](https://github.com/clj-grenada/lib-grenada/tree/master)
 
- - for **developers**: annotate Clojure objects that don't support doc strings with
-   easily accessible documentation (to be implemented).
+## Places to go
 
-This repo houses the Grenada specification (start with reading the
-[overview](SpecOverview.md)) and other things, which I couldn't find a better
-place for. For an overview of Grenada documentation, [see
-here](https://github.com/clj-grenada/lib-grenada/doc/overview.md).
+ - This repo houses the Grenada specification. Start with reading the
+   [overview](SpecOverview.md).
+
+ - It also houses other things which I couldn't find a better place for.
+   This, for example, ended up to be the home page of the Grenada project.
+   The project structure will be improved in a visible future.
+
+ - [overview of Grenada
+   documentation](https://github.com/clj-grenada/lib-grenada/blob/master/doc/overview.md)
+
+ - [roadmap](roadmap.md)
+
+ - [contributing guide](contributing.md)
 
 ## Names
 

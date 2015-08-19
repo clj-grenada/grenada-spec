@@ -1,7 +1,7 @@
 # Grenada Specification
 
 (If this is not what you were looking for, see the [general
-overview](https://github.com/clj-grenada/lib-grenada/doc/overview.md).)
+overview](https://github.com/clj-grenada/lib-grenada/blob/master/doc/overview.md).)
 
 This is a rough and work-in-progress specification of how Grenada is supposed to
 work. In the course of a major revision I haven't corrected the existing files,
@@ -62,7 +62,7 @@ the job well enough.
 
 ## Version
 
-1.0.0-rc.1
+1.0.0-rc.2
 
 ## Notes
 
@@ -78,6 +78,11 @@ the job well enough.
 Contains only changes that can't be assigned to a single document. All
 changelogs only list changes I consider important and interesting. Typos,
 rewordings and additions of some notes are usually not included.
+
+### 1.0.0-rc.2
+
+ - Add [‘roadmap’](roadmap.md).
+ - Add [contributing guide](contributing.md).
 
 ### 1.0.0-rc.1
 
