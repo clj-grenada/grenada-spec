@@ -62,7 +62,7 @@ the job well enough.
 
 ## Version
 
-1.0.0-rc.1
+1.0.0-rc.2
 
 ## Notes
 
