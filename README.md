@@ -39,6 +39,8 @@ Grenada is a Clojure metadata build and distribution system. Features:
 
  - [roadmap](roadmap.md)
 
+ - [contributing guide](contributing.md)
+
 ## Names
 
 There are two names which might sound new to you: Grenada and Datadoc. I am

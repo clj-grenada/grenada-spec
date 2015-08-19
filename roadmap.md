@@ -1,8 +1,8 @@
 # Roadmap
 
-This will give you an idea of where Grenada might go if there is enough interest
-and time. For more details (and less tidyness), have a look at the
-PivotalTracker [instance for
+Not really a roadmap, but the name makes it easy to find. This will give you an
+idea of where Grenada might go if there is enough interest and time. For more
+details (and less tidyness), have a look at the PivotalTracker [instance for
 Grenada](https://www.pivotaltracker.com/n/projects/1404396).
 
 ## Model
