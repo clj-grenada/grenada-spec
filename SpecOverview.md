@@ -62,7 +62,7 @@ the job well enough.
 
 ## Version
 
-1.0.0-rc.1
+1.0.0-rc.2
 
 ## Notes
 
@@ -78,6 +78,11 @@ the job well enough.
 Contains only changes that can't be assigned to a single document. All
 changelogs only list changes I consider important and interesting. Typos,
 rewordings and additions of some notes are usually not included.
+
+### 1.0.0-rc.2
+
+ - Add [‘roadmap’](roadmap.md).
+ - Add [contributing guide](contributing.md).
 
 ### 1.0.0-rc.1
 
