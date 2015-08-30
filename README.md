@@ -133,6 +133,13 @@ These tools could build on the Grenada format or Datadoc JARs.
    but only for JVM Clojure, as far as I see. Used for creating the official
    Clojure API documentation.
 
+ - [Hydrox](https://github.com/helpshift/hydrox): a sensible approach to
+   documentation. A tool that doesn't just dump HTML-ified doc strings, but that
+   allows you to write beautifully formatted and structured documentation and
+   even checks your code examples. Datadoc JARs could be used as a distribution
+   format. With a bit of glue code it should be easy to attach all the Hydrox
+   data to Things.
+
 ### Built on (infrastructure)
 
 Things used by Grenada.
