@@ -18,7 +18,7 @@ Grenada is a Clojure metadata build and distribution system. Features:
 
  - for **documentation editors**: jazz up the documentation of existing Clojure
    libraries; assemble documentation and examples from different sources.
-   [✈](https://github.com/clj-grenada/lib-grenada/blob/master/doc/doc/tutorial.md)
+   [✈](https://github.com/clj-grenada/lib-grenada/blob/master/doc/tutorial.md)
 
  - for **toolsmiths**: build on a rigorously flexible model of metadata about
    things in the Clojure ecosystem.
